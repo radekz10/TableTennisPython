@@ -1,6 +1,6 @@
 # TableTennisPython
 
-- custom 2D palky, micek, stul, menu , tabulka se score
+- custom 2D palky, micek, stul, menu , tabulka se score - textury
 - kolize 
 - odrazeni, pohyb micku
 - ui
