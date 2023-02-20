@@ -2,6 +2,7 @@
 
 - custom 2D palky, micek, stul, menu , tabulka se score
 - kolize 
+- odrazeni, pohyb micku
 - ui
 - game menu
 - player statistiky
