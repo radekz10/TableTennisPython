@@ -6,4 +6,7 @@
 - ui
 - game menu
 - player statistiky
+- ovladani WSAD, IJKL
+- random velikost micku
+- random zrychleni 
 - mody - solo, 1v1 na klavesnici
