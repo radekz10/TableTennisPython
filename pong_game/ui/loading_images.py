@@ -33,7 +33,7 @@ class LoadingImages:
 
     MENU_BACKGROUND = {
 
-        1: {"BACKGROUND": res(pygame.image.load("../images/ui/backgrounds/wallpaper.jpg"), 0.75).convert_alpha()}
+        1: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/wallpaper.jpg"), 0.75).convert_alpha()},
 
     }
 
@@ -49,7 +49,6 @@ class LoadingImages:
         6: {"BUTTON": res(pygame.image.load("../images/ui/buttons/binds_button.png"), 0.15).convert_alpha()}
 
     }
-
 
     # FONTS -----------------------------------------------------------------------------------------------------------
 
