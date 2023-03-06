@@ -13,3 +13,5 @@ class Settings:
     audio = 1
     vsync = 1
     show_fps = 1
+
+    start_time = 0
