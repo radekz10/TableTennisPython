@@ -47,8 +47,15 @@ class LoadingImages:
         3: {"BUTTON": res(pygame.image.load("../images/ui/buttons/button.png"), 1).convert_alpha()},
         # 4: {"BUTTON": res(pygame.image.load("../images/ui/buttons/button_win_lose.png"), 1.5).convert_alpha()},
 
-        # 5: {"BUTTON": res(pygame.image.load("../images/ui/buttons/settings_button.png"), 0.1).convert_alpha()},
+        5: {"BUTTON": res(pygame.image.load("../images/ui/buttons/settings_button.png"), 0.1).convert_alpha()},
         # 6: {"BUTTON": res(pygame.image.load("../images/ui/buttons/binds_button.png"), 0.15).convert_alpha()}
+
+    }
+
+    ON_OFF_BUTTONS = {
+
+        1: {"BUTTON": res(pygame.image.load("../images/ui/buttons/on_off_button.png"), 1).convert_alpha()},
+        2: {"BUTTON": res(pygame.image.load("../images/ui/buttons/on_off_button.png"), 2).convert_alpha()}
 
     }
 

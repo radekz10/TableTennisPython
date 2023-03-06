@@ -29,18 +29,18 @@ class Menu:
                                  font=LoadingImages.BIG_FONT,
                                  font_color="white", font_hover_color="cyan")
 
-           # stats_button = Button(button_image=LoadingImages.BUTTONS[1]["BUTTON"], x_y=(1196, 630),
-                           #       button_text="STATS",
-                               #   font=LoadingImages.NORMAL_FONT,
-                               #   font_color="white", font_hover_color="cyan")
+            # stats_button = Button(button_image=LoadingImages.BUTTONS[1]["BUTTON"], x_y=(1196, 630),
+            #       button_text="STATS",
+            #   font=LoadingImages.NORMAL_FONT,
+            #   font_color="white", font_hover_color="cyan")
 
-           # binds_button = Button(button_image=LoadingImages.BUTTONS[6]["BUTTON"], x_y=(60, 60), button_text="",
-                               #   font=LoadingImages.NORMAL_FONT,
-                                #  font_color="white", font_hover_color="cyan")
+            # binds_button = Button(button_image=LoadingImages.BUTTONS[6]["BUTTON"], x_y=(60, 60), button_text="",
+            #   font=LoadingImages.NORMAL_FONT,
+            #  font_color="white", font_hover_color="cyan")
 
-            #settings_button = Button(button_image=LoadingImages.BUTTONS[5]["BUTTON"], x_y=(1860, 60), button_text="",
-                               #      font=LoadingImages.NORMAL_FONT,
-                                #     font_color="white", font_hover_color="cyan")
+            settings_button = Button(button_image=LoadingImages.BUTTONS[5]["BUTTON"], x_y=(1860, 60), button_text="",
+                                     font=LoadingImages.NORMAL_FONT,
+                                     font_color="white", font_hover_color="cyan")
 
             quit_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="QUIT",
@@ -49,15 +49,15 @@ class Menu:
 
             play_button.button_render(LoadingImages.GAME_SCREEN)
 
-           # stats_button.button_render(LoadingImages.GAME_SCREEN)
-           # binds_button.button_render(LoadingImages.GAME_SCREEN)
-           # settings_button.button_render(LoadingImages.GAME_SCREEN)
+            # stats_button.button_render(LoadingImages.GAME_SCREEN)
+            # binds_button.button_render(LoadingImages.GAME_SCREEN)
+            settings_button.button_render(LoadingImages.GAME_SCREEN)
             quit_button.button_render(LoadingImages.GAME_SCREEN)
 
             Button.button_hover_render(play_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            #Button.button_hover_render(stats_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-           # Button.button_hover_render(binds_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-           # Button.button_hover_render(settings_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+            # Button.button_hover_render(stats_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+            # Button.button_hover_render(binds_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+            Button.button_hover_render(settings_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
             Button.button_hover_render(quit_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
             for event in pygame.event.get():
@@ -71,8 +71,8 @@ class Menu:
                     # Menu.first_map_stats()
                     # if binds_button.on_click(mouse_coordinates):
                     # Menu.binds()
-                    # if settings_button.on_click(mouse_coordinates):
-                    # Menu.game_settings()
+                    if settings_button.on_click(mouse_coordinates):
+                        Menu.game_settings()
                     if quit_button.on_click(mouse_coordinates):
                         pygame.quit()
 
@@ -156,7 +156,6 @@ class Menu:
             DrawUI.draw_text("VSYNC", LoadingImages.NORMAL_FONT, "cyan", 620, 400, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("UI", LoadingImages.NORMAL_FONT, "cyan", 620, 500, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("FPS", LoadingImages.NORMAL_FONT, "cyan", 620, 600, LoadingImages.GAME_SCREEN)
-            DrawUI.draw_text("CAR XY", LoadingImages.NORMAL_FONT, "cyan", 620, 700, LoadingImages.GAME_SCREEN)
 
             audio_on_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1220, 340),
                                      button_text="ON", font=LoadingImages.SMALL_FONT, font_color="white",
@@ -187,13 +186,6 @@ class Menu:
                                          button_text="OFF", font=LoadingImages.SMALL_FONT, font_color="white",
                                          font_hover_color="purple")
 
-            show_xy_on_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1220, 740),
-                                       button_text="ON", font=LoadingImages.SMALL_FONT, font_color="white",
-                                       font_hover_color="cyan")
-            show_xy_off_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1300, 740),
-                                        button_text="OFF", font=LoadingImages.SMALL_FONT, font_color="white",
-                                        font_hover_color="purple")
-
             back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                                  font_hover_color="red")
@@ -210,9 +202,6 @@ class Menu:
             show_fps_on_button.button_render(LoadingImages.GAME_SCREEN)
             show_fps_off_button.button_render(LoadingImages.GAME_SCREEN)
 
-            show_xy_on_button.button_render(LoadingImages.GAME_SCREEN)
-            show_xy_off_button.button_render(LoadingImages.GAME_SCREEN)
-
             back_button.button_render(LoadingImages.GAME_SCREEN)
 
             Button.button_hover_render(audio_on_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
@@ -226,9 +215,6 @@ class Menu:
 
             Button.button_hover_render(show_fps_on_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
             Button.button_hover_render(show_fps_off_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-
-            Button.button_hover_render(show_xy_on_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(show_xy_off_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
             Button.button_hover_render(back_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
@@ -247,8 +233,6 @@ class Menu:
                         show_ui_off_button: ("UI OFF!", 900, 210, 2),
                         show_fps_on_button: ("FPS ON!", 890, 210, 1),
                         show_fps_off_button: ("FPS OFF!", 890, 210, 2),
-                        show_xy_on_button: ("X-Y ON!", 890, 210, 1),
-                        show_xy_off_button: ("X-Y OFF!", 890, 210, 2),
                     }
 
                     for button, (text, x, y, value) in settings_options.items():
@@ -262,8 +246,6 @@ class Menu:
                                 Settings.show_ui = value
                             elif button in (show_fps_on_button, show_fps_off_button):
                                 Settings.show_fps = value
-                            elif button in (show_xy_on_button, show_xy_off_button):
-                                Settings.show_xy = value
 
                             DrawUI.draw_text(text, LoadingImages.NORMAL_FONT, "green", x, y, LoadingImages.GAME_SCREEN)
                             pygame.display.update()
