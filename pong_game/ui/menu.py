@@ -15,7 +15,6 @@ class Menu:
     # MAIN MENU --------------------------------------------------------------------------------------------------------
     @staticmethod
     def main_menu():
-        pygame.display.set_caption("2D Racing Game - Menu")
 
         while 1:
 
@@ -30,18 +29,18 @@ class Menu:
                                  font=LoadingImages.BIG_FONT,
                                  font_color="white", font_hover_color="cyan")
 
-            stats_button = Button(button_image=LoadingImages.BUTTONS[1]["BUTTON"], x_y=(1196, 630),
-                                  button_text="STATS",
-                                  font=LoadingImages.NORMAL_FONT,
-                                  font_color="white", font_hover_color="cyan")
+           # stats_button = Button(button_image=LoadingImages.BUTTONS[1]["BUTTON"], x_y=(1196, 630),
+                           #       button_text="STATS",
+                               #   font=LoadingImages.NORMAL_FONT,
+                               #   font_color="white", font_hover_color="cyan")
 
-            binds_button = Button(button_image=LoadingImages.BUTTONS[6]["BUTTON"], x_y=(60, 60), button_text="",
-                                  font=LoadingImages.NORMAL_FONT,
-                                  font_color="white", font_hover_color="cyan")
+           # binds_button = Button(button_image=LoadingImages.BUTTONS[6]["BUTTON"], x_y=(60, 60), button_text="",
+                               #   font=LoadingImages.NORMAL_FONT,
+                                #  font_color="white", font_hover_color="cyan")
 
-            settings_button = Button(button_image=LoadingImages.BUTTONS[5]["BUTTON"], x_y=(1860, 60), button_text="",
-                                     font=LoadingImages.NORMAL_FONT,
-                                     font_color="white", font_hover_color="cyan")
+            #settings_button = Button(button_image=LoadingImages.BUTTONS[5]["BUTTON"], x_y=(1860, 60), button_text="",
+                               #      font=LoadingImages.NORMAL_FONT,
+                                #     font_color="white", font_hover_color="cyan")
 
             quit_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="QUIT",
@@ -50,15 +49,15 @@ class Menu:
 
             play_button.button_render(LoadingImages.GAME_SCREEN)
 
-            stats_button.button_render(LoadingImages.GAME_SCREEN)
-            binds_button.button_render(LoadingImages.GAME_SCREEN)
-            settings_button.button_render(LoadingImages.GAME_SCREEN)
+           # stats_button.button_render(LoadingImages.GAME_SCREEN)
+           # binds_button.button_render(LoadingImages.GAME_SCREEN)
+           # settings_button.button_render(LoadingImages.GAME_SCREEN)
             quit_button.button_render(LoadingImages.GAME_SCREEN)
 
             Button.button_hover_render(play_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(stats_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(binds_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(settings_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+            #Button.button_hover_render(stats_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+           # Button.button_hover_render(binds_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+           # Button.button_hover_render(settings_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
             Button.button_hover_render(quit_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
             for event in pygame.event.get():
@@ -70,8 +69,8 @@ class Menu:
 
                     # if stats_button.on_click(mouse_coordinates):
                     # Menu.first_map_stats()
-                    if binds_button.on_click(mouse_coordinates):
-                        Menu.binds()
+                    # if binds_button.on_click(mouse_coordinates):
+                    # Menu.binds()
                     # if settings_button.on_click(mouse_coordinates):
                     # Menu.game_settings()
                     if quit_button.on_click(mouse_coordinates):
