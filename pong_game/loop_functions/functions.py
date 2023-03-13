@@ -43,15 +43,13 @@ class LoopFunctions:
                     Settings.enemy_start_time = pygame.time.get_ticks()
 
     @staticmethod
-    def start_countdown(car, enemy_car):
+    def start_countdown(f_player, s_player):
         if Settings.countdown > 0:
 
             count_timer = pygame.time.get_ticks()
-            car.max_speed = 0
+            f_player.max_speed = 0
 
-            enemy_car.max_speed = 0
-
-            enemy_car.movement_speed = 0
+            s_player.max_speed = 0
 
             if count_timer - Settings.last_count > 1000:
                 Settings.countdown -= 1
