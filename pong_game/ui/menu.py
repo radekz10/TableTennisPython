@@ -1,6 +1,7 @@
 import pygame
 
 from pong_game.config.settings import Settings
+from pong_game.loop.matches import Match
 from pong_game.ui.button import Button
 from pong_game.ui.draw_ui import DrawUI
 from pong_game.ui.loading_images import LoadingImages
@@ -8,7 +9,7 @@ from pong_game.ui.loading_images import LoadingImages
 
 class Menu:
     TITLE_Y = 70
-    TITLE_COLOR = "purple"
+    TITLE_COLOR = "orange"
     QUIT_X = 977
     QUIT_Y = 980
 
@@ -65,8 +66,8 @@ class Menu:
                     pygame.quit()
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    # if play_button.on_click(mouse_coordinates):
-
+                    if play_button.on_click(mouse_coordinates):
+                        Match.f_match()
                     # if stats_button.on_click(mouse_coordinates):
                     # Menu.first_map_stats()
                     # if binds_button.on_click(mouse_coordinates):

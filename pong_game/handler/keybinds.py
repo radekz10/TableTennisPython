@@ -1,7 +1,6 @@
 import pygame
 
-from pong_game.ui.menu import Menu
-
+import pong_game.ui.menu
 
 class KeyBinds:
     @staticmethod
@@ -26,13 +25,13 @@ class KeyBinds:
             f_player.rotate_left()
 
         if pressed_key[pygame.K_x]:
-            Menu.main_menu()
+            pong_game.ui.menu.Menu.main_menu()
 
         if pressed_key[pygame.K_r]:
             match_restart()
 
     @staticmethod
-    def s_player_key_binds(s_player):
+    def s_player_key_binds(s_player, match_restart):
         pressed_key = pygame.key.get_pressed()
 
         if pressed_key[pygame.K_i]:
@@ -50,3 +49,6 @@ class KeyBinds:
 
         if pressed_key[pygame.K_j]:
             s_player.rotate_left()
+
+        if pressed_key[pygame.K_r]:
+            match_restart()

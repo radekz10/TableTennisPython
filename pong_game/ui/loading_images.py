@@ -34,6 +34,13 @@ class LoadingImages:
     MENU_BACKGROUND = {
 
         1: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/wallpaper.jpg"), 0.75).convert_alpha()},
+        2: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/grey_wallpaper.jpg"), 1).convert_alpha()},
+
+    }
+
+    TABLE = {
+
+        1: {"TABLE": res(pygame.image.load("../images/ui/table/pong_table1.png"), 0.5).convert_alpha()},
 
     }
 
