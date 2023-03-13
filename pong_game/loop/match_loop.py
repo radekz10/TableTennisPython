@@ -21,8 +21,8 @@ class MatchLoop:
 
             clock = pygame.time.Clock()
 
-            #f_player = f_player()
-            #s_player = s_player()
+            f_player = f_player()
+            s_player = s_player()
 
             Settings.started = False
 
@@ -31,9 +31,12 @@ class MatchLoop:
                 clock.tick(Settings.game_tick)
 
                 LoadingImages.GAME_SCREEN.blit(background, (0, 0))
-                LoadingImages.GAME_SCREEN.blit(table, (0, 0))
+                LoadingImages.GAME_SCREEN.blit(table, (600, 400))
 
                 LoopFunctions.start_countdown(f_player, s_player)
+
+                f_player.render_position(LoadingImages.GAME_SCREEN)
+                s_player.render_position(LoadingImages.GAME_SCREEN)
 
                 LoopFunctions.start_game()
                 pygame.display.update()

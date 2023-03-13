@@ -40,7 +40,14 @@ class LoadingImages:
 
     TABLE = {
 
-        1: {"TABLE": res(pygame.image.load("../images/ui/table/pong_table1.png"), 0.5).convert_alpha()},
+        1: {"TABLE": res(pygame.image.load("../images/ui/table/pong_table2.png"), 1.5).convert_alpha()},
+
+    }
+
+    PONG_BATS = {
+
+        1: {"BAT": res(pygame.image.load("../images/ui/bat/bat2.png"), 0.1).convert_alpha()},
+        2: {"BAT": res(pygame.image.load("../images/ui/bat/bat3.png"), 0.1).convert_alpha()},
 
     }
 
