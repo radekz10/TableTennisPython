@@ -8,7 +8,7 @@ from pong_game.ui.loading_images import LoadingImages
 
 class MatchLoop:
     @staticmethod
-    def loop(f_player, s_player, background, table, match_restart):
+    def loop(f_player, s_player, ball, background, table, match_restart):
 
         pygame.event.set_allowed(pygame.KEYDOWN)
 
@@ -24,6 +24,8 @@ class MatchLoop:
             f_player = f_player()
             s_player = s_player()
 
+            ball = ball()
+
             Settings.started = False
 
             while game_loop:
@@ -37,6 +39,8 @@ class MatchLoop:
 
                 f_player.render_position(LoadingImages.GAME_SCREEN)
                 s_player.render_position(LoadingImages.GAME_SCREEN)
+
+                ball.render_position(LoadingImages.GAME_SCREEN)
 
                 LoopFunctions.start_game()
                 pygame.display.update()

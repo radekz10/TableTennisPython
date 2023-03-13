@@ -51,6 +51,12 @@ class LoadingImages:
 
     }
 
+    PONG_BALL = {
+
+        1: {"BALL": res(pygame.image.load("../images/ui/ball/pong_ball.png"), 0.025).convert_alpha()}
+
+    }
+
     # BUTTONS ----------------------------------------------------------------------------------------------------------
 
     BUTTONS = {
