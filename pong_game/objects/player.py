@@ -4,16 +4,12 @@ import pygame
 
 
 class Player:
-    FULL_DEGREES = 360
-    HALF_DEGREES = 180
-
-    PI = 3.14
 
     def __init__(self):
         self.image = self.image
         self.x = self.x_position
         self.y = self.y_position
-        self.speed = 2
+        self.speed = 10
         self.max_speed = 3
         self.movement_speed = 2
         self.max_movement_speed = 5
@@ -30,36 +26,20 @@ class Player:
     def render_position(self, game_window):
         self.image_position(game_window, self.image, (self.x, self.y), self.angle)
 
-    def movement(self):
-        plane_angle = self.angle * (self.PI / self.HALF_DEGREES)
-
-        self.x += -self.speed * math.sin(plane_angle)
-        self.y += -self.speed * math.cos(plane_angle)
-
     def up(self):
-        #self.speed = min(self.speed + self.speed, self.max_speed)
-
-        #self.movement()
-
-        self.y -= 10
+        self.y -= self.speed
 
     def down(self):
-        #self.speed = max(self.speed - self.speed, -6)
-
-        #self.movement()
-
-        self.y += 10
+        self.y += self.speed
 
     def right(self):
-        #self.speed = max(self.speed - self.speed, -6)
-
-        #self.movement()
-
-        self.x += 10
+        self.x += self.speed
 
     def left(self):
-        #self.speed = min(self.speed + self.speed, self.max_speed)
+        self.x -= self.speed
 
-        #self.movement()
+    def rotate_left(self):
+        self.angle -= self.angle
 
-        self.x -= 10
+    def rotate_right(self):
+        self.angle += self.angle

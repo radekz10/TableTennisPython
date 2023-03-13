@@ -15,12 +15,16 @@ class KeyBinds:
             f_player.down()
 
         if pressed_key[pygame.K_d]:
-            # f_player.rotate_right()
             f_player.right()
 
         if pressed_key[pygame.K_a]:
-            # f_player.rotate_left()
             f_player.left()
+
+        if pressed_key[pygame.K_q]:
+            f_player.rotate_left()
+
+        if pressed_key[pygame.K_e]:
+            f_player.rotate_right()
 
         if pressed_key[pygame.K_x]:
             pong_game.ui.menu.Menu.main_menu()
