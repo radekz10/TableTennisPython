@@ -44,33 +44,55 @@ class LoopFunctions:
 
     @staticmethod
     def start_countdown(f_player, s_player):
+        x = 950
+        y = 600
+
         if Settings.countdown > 0:
 
             count_timer = pygame.time.get_ticks()
+
             f_player.max_speed = 0
+            f_player.speed = 0
 
             s_player.max_speed = 0
+            s_player.speed = 0
 
             if count_timer - Settings.last_count > 1000:
                 Settings.countdown -= 1
                 Settings.last_count = count_timer
 
         if Settings.countdown == 5:
-            DrawUI.draw_text(f"{str(Settings.countdown)} - 5", LoadingImages.NORMAL_FONT, "red", 850, 570,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "red", x, y,
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown == 4:
-            DrawUI.draw_text(f"{str(Settings.countdown)} - 4", LoadingImages.NORMAL_FONT, "red", 850, 570,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "red", x, y,
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown == 3:
-            DrawUI.draw_text(f"{str(Settings.countdown)} - 3", LoadingImages.NORMAL_FONT, "red", 850, 570,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "red", x, y,
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown == 2:
-            DrawUI.draw_text(f"{str(Settings.countdown)} - 2", LoadingImages.NORMAL_FONT, "red", 850, 570,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "red", x, y,
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown == 1:
-            DrawUI.draw_text(f"{str(Settings.countdown)} - 1", LoadingImages.NORMAL_FONT, "red", 850, 570,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "red", x, y,
                              LoadingImages.GAME_SCREEN)
+
+        if Settings.countdown <= 0:
+            f_player.speed = 10
+            s_player.speed = 10
+
+
+class Collisions:
+    @staticmethod
+    def f_player_vs_ball(ball, f_player_rect, ball_rect):
+        if f_player_rect.colliderect(ball_rect):
+            ball.collision()
+
+    @staticmethod
+    def s_player_vs_ball(ball, s_player_rect, ball_rect):
+        if s_player_rect.colliderect(ball_rect):
+            ball.collisionn()

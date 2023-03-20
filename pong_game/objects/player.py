@@ -26,6 +26,13 @@ class Player:
     def render_position(self, game_window):
         self.image_position(game_window, self.image, (self.x, self.y), self.angle)
 
+    def get_rect(self):
+        rect_angle = pygame.transform.rotate(self.image, self.angle)
+        rect = rect_angle.get_rect(topleft=(self.x, self.y),
+                                   center=(self.x + (self.image.get_width() / 2), self.y + (self.image.get_height() / 2)))
+
+        return rect
+
     def up(self):
         self.y -= self.speed
 

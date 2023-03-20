@@ -2,7 +2,7 @@ import pygame
 
 from pong_game.config.settings import Settings
 from pong_game.handler.keybinds import KeyBinds
-from pong_game.loop_functions.functions import LoopFunctions
+from pong_game.loop_functions.functions import LoopFunctions, Collisions
 from pong_game.ui.loading_images import LoadingImages
 
 
@@ -51,5 +51,8 @@ class MatchLoop:
 
                 KeyBinds.f_player_key_binds(f_player, match_restart)
                 KeyBinds.s_player_key_binds(s_player, match_restart)
+
+                Collisions.f_player_vs_ball(ball, f_player.get_rect(), ball.get_rect())
+                Collisions.s_player_vs_ball(ball, s_player.get_rect(), ball.get_rect())
 
             pygame.display.update()
