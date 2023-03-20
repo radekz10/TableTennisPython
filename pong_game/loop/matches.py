@@ -10,4 +10,4 @@ class Match:
     @staticmethod
     def f_match():
         MatchLoop.loop(FirstPlayer, SecondPlayer, Ball, LoadingImages.MENU_BACKGROUND[2]["BACKGROUND"],
-                       LoadingImages.TABLE[1]["TABLE"], Match.f_match)
+                       LoadingImages.TABLE[2]["TABLE"], Match.f_match)

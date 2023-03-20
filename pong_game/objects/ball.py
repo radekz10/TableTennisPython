@@ -38,6 +38,14 @@ class Ball:
     def get_rect(self):
         rect_angle = pygame.transform.rotate(self.image, self.angle)
         rect = rect_angle.get_rect(topleft=(self.x, self.y),
-                                   center=(self.x + (self.image.get_width() / 2), self.y + (self.image.get_height() / 2)))
+                                   center=(
+                                   self.x + (self.image.get_width() / 2), self.y + (self.image.get_height() / 2)))
 
         return rect
+
+    def out_of_screen(self):
+        if self.x <= 0 or self.x >= 1920:
+            if self.y <= 0 or self.y >= 1080:
+                self.x = 900
+                self.y = 540
+                self.movement()

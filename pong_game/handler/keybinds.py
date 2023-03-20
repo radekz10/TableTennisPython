@@ -50,3 +50,8 @@ class KeyBinds:
 
         if pressed_key[pygame.K_r]:
             match_restart()
+
+    @staticmethod
+    def key_binds(f_player, s_player, match_restart):
+        KeyBinds.f_player_key_binds(f_player, match_restart)
+        KeyBinds.s_player_key_binds(s_player, match_restart)

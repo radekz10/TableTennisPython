@@ -105,3 +105,8 @@ class Collisions:
             ball.collisionn()
             Settings.s_player_score += 1
             ball.angle -= 50
+
+    @staticmethod
+    def check_collisions(f_player, s_player, ball):
+        Collisions.f_player_vs_ball(ball, f_player.get_rect(), ball.get_rect())
+        Collisions.s_player_vs_ball(ball, s_player.get_rect(), ball.get_rect())

@@ -35,7 +35,7 @@ class MatchLoop:
                 clock.tick(Settings.game_tick)
 
                 LoadingImages.GAME_SCREEN.blit(background, (0, 0))
-                LoadingImages.GAME_SCREEN.blit(table, (600, 300))
+                LoadingImages.GAME_SCREEN.blit(table, (550, 300))
 
                 LoopFunctions.start_countdown(f_player, s_player, ball)
 
@@ -51,6 +51,8 @@ class MatchLoop:
                 f_player.score()
                 s_player.score()
 
+                ball.out_of_screen()
+
                 LoopFunctions.start_game()
                 pygame.display.update()
 
@@ -58,13 +60,11 @@ class MatchLoop:
                     if event.type == pygame.QUIT:
                         pygame.quit()
 
-                KeyBinds.f_player_key_binds(f_player, match_restart)
-                KeyBinds.s_player_key_binds(s_player, match_restart)
+                KeyBinds.key_binds(f_player, s_player, match_restart)
 
-                #f_player.max_pos()
-                #s_player.max_pos()
+                # f_player.max_pos()
+                # s_player.max_pos()
 
-                Collisions.f_player_vs_ball(ball, f_player.get_rect(), ball.get_rect())
-                Collisions.s_player_vs_ball(ball, s_player.get_rect(), ball.get_rect())
+                Collisions.check_collisions(f_player, s_player, ball)
 
             pygame.display.update()
