@@ -3,7 +3,6 @@ import pygame
 from pong_game.config.settings import Settings
 from pong_game.handler.keybinds import KeyBinds
 from pong_game.loop_functions.functions import LoopFunctions, Collisions
-from pong_game.objects.ball import Ball
 from pong_game.ui.draw_ui import DrawUI
 from pong_game.ui.loading_images import LoadingImages
 
