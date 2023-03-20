@@ -23,6 +23,10 @@ class Ball:
     def render_position(self, game_window):
         self.image_position(game_window, self.image, (self.x, self.y), self.angle)
 
+    def movement(self):
+        self.x += self.speed
+        self.y += self.speed / 2
+
     def collision(self):
         self.speed += 10
         self.x += 50

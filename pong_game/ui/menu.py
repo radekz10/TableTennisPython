@@ -243,6 +243,7 @@ class Menu:
                                 Settings.audio = value
                             elif button in (vsync_on_button, vsync_off_button):
                                 Settings.vsync = value
+                                print(Settings.vsync)
                             elif button in (show_ui_on_button, show_ui_off_button):
                                 Settings.show_ui = value
                             elif button in (show_fps_on_button, show_fps_off_button):

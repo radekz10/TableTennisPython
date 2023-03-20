@@ -1,6 +1,7 @@
 import pygame
 
 from pong_game.config.settings import Settings
+from pong_game.objects.ball import Ball
 from pong_game.ui.draw_ui import DrawUI
 from pong_game.ui.loading_images import LoadingImages
 
@@ -43,9 +44,11 @@ class LoopFunctions:
                     Settings.enemy_start_time = pygame.time.get_ticks()
 
     @staticmethod
-    def start_countdown(f_player, s_player):
+    def start_countdown(f_player, s_player, ball):
         x = 950
         y = 600
+
+        color = "white"
 
         if Settings.countdown > 0:
 
@@ -62,28 +65,30 @@ class LoopFunctions:
                 Settings.last_count = count_timer
 
         if Settings.countdown == 5:
-            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "red", x, y,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, color, x, y,
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown == 4:
-            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "red", x, y,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, color, x, y,
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown == 3:
-            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "red", x, y,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, color, x, y,
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown == 2:
-            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "red", x, y,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, color, x, y,
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown == 1:
-            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "red", x, y,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, color, x, y,
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown <= 0:
             f_player.speed = 10
             s_player.speed = 10
+
+            ball.movement()
 
 
 class Collisions:
@@ -91,8 +96,12 @@ class Collisions:
     def f_player_vs_ball(ball, f_player_rect, ball_rect):
         if f_player_rect.colliderect(ball_rect):
             ball.collision()
+            Settings.f_player_score += 1
+            ball.angle += 50
 
     @staticmethod
     def s_player_vs_ball(ball, s_player_rect, ball_rect):
         if s_player_rect.colliderect(ball_rect):
             ball.collisionn()
+            Settings.s_player_score += 1
+            ball.angle -= 50

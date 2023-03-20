@@ -1,5 +1,4 @@
 class Settings:
-
     started = False
 
     # tick
@@ -15,3 +14,6 @@ class Settings:
     show_fps = 1
 
     start_time = 0
+
+    f_player_score = 0
+    s_player_score = 0
