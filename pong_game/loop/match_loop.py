@@ -33,7 +33,7 @@ class MatchLoop:
                 clock.tick(Settings.game_tick)
 
                 LoadingImages.GAME_SCREEN.blit(background, (0, 0))
-                LoadingImages.GAME_SCREEN.blit(table, (600, 400))
+                LoadingImages.GAME_SCREEN.blit(table, (600, 300))
 
                 LoopFunctions.start_countdown(f_player, s_player)
 
