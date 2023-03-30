@@ -35,10 +35,20 @@ class Ball:
         self.speed -= 10
         self.x -= 50
 
+    def respawn(self):
+        self.x = 900
+        self.y = 540
+
+    def ball_pos(self):
+        if self.y >= 800:
+            self.y -= 50
+
+        if self.y <= 500:
+            self.y -= 50
+
     def get_rect(self):
         rect_angle = pygame.transform.rotate(self.image, self.angle)
-        rect = rect_angle.get_rect(topleft=(self.x, self.y),
-                                   center=(
+        rect = rect_angle.get_rect(topleft=(self.x, self.y), center=(
                                    self.x + (self.image.get_width() / 2), self.y + (self.image.get_height() / 2)))
 
         return rect

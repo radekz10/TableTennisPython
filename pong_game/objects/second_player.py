@@ -15,8 +15,8 @@ class SecondPlayer(Player):
         if self.x >= 1550:
             self.x = 1550
 
-        if self.x <= 1300:
-            self.x = 1300
+        if self.x <= 1200:
+            self.x = 1200
 
         if self.y <= 280:
             self.y = 280

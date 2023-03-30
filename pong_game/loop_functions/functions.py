@@ -1,6 +1,7 @@
 import pygame
 
 from pong_game.config.settings import Settings
+from pong_game.storage.data_processing import DataProcessing
 from pong_game.ui.draw_ui import DrawUI
 from pong_game.ui.loading_images import LoadingImages
 
@@ -110,14 +111,14 @@ class Collisions:
     def f_player_vs_ball(ball, f_player_rect, ball_rect):
         if f_player_rect.colliderect(ball_rect):
             ball.collision()
-            Settings.f_player_score += 1
+            # Settings.f_player_score += 1
             ball.angle += 50
 
     @staticmethod
     def s_player_vs_ball(ball, s_player_rect, ball_rect):
         if s_player_rect.colliderect(ball_rect):
             ball.collisionn()
-            Settings.s_player_score += 1
+            # Settings.s_player_score += 1
             ball.angle -= 50
 
     @staticmethod
@@ -125,4 +126,31 @@ class Collisions:
         Collisions.f_player_vs_ball(ball, f_player.get_rect(), ball.get_rect())
         Collisions.s_player_vs_ball(ball, s_player.get_rect(), ball.get_rect())
 
+    @staticmethod
+    def check_ball_pos(ball, f_player, s_player):
+        if ball.x <= 450:
+            Settings.s_player_score += 1
+            ball.respawn()
 
+        if ball.x >= 1400:
+            Settings.f_player_score += 1
+            ball.respawn()
+
+    @staticmethod
+    def check_score():
+        if Settings.f_player_score == 5:
+            DataProcessing.save_data(str(Settings.win_coins), Settings.FILE_PATHS[1]["FILE"])
+            DataProcessing.save_data(str(Settings.score_coins), Settings.FILE_PATHS[2]["FILE"])
+
+            DrawUI.draw_text("I. PLAYER WON!", LoadingImages.BIG_FONT, "gold", 800, 800, LoadingImages.GAME_SCREEN)
+            pygame.display.update()
+            pygame.time.wait(1000)
+
+            LoopFunctions.check_new_game()
+
+        if Settings.s_player_score == 5:
+            DrawUI.draw_text("II. PLAYER WON!", LoadingImages.BIG_FONT, "gold", 800, 800, LoadingImages.GAME_SCREEN)
+            pygame.display.update()
+            pygame.time.wait(1000)
+
+            LoopFunctions.check_new_game()
