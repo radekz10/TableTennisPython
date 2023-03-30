@@ -30,14 +30,14 @@ class Menu:
                                  font=LoadingImages.BIG_FONT,
                                  font_color="white", font_hover_color="cyan")
 
-            # stats_button = Button(button_image=LoadingImages.BUTTONS[1]["BUTTON"], x_y=(1196, 630),
-            #       button_text="STATS",
-            #   font=LoadingImages.NORMAL_FONT,
-            #   font_color="white", font_hover_color="cyan")
+            stats_button = Button(button_image=LoadingImages.BUTTONS[1]["BUTTON"], x_y=(1196, 630),
+                                  button_text="STATS",
+                                  font=LoadingImages.NORMAL_FONT,
+                                  font_color="white", font_hover_color="cyan")
 
-            # binds_button = Button(button_image=LoadingImages.BUTTONS[6]["BUTTON"], x_y=(60, 60), button_text="",
-            #   font=LoadingImages.NORMAL_FONT,
-            #  font_color="white", font_hover_color="cyan")
+            binds_button = Button(button_image=LoadingImages.BUTTONS[6]["BUTTON"], x_y=(60, 60), button_text="",
+                                  font=LoadingImages.NORMAL_FONT,
+                                  font_color="white", font_hover_color="cyan")
 
             settings_button = Button(button_image=LoadingImages.BUTTONS[5]["BUTTON"], x_y=(1860, 60), button_text="",
                                      font=LoadingImages.NORMAL_FONT,
@@ -50,14 +50,14 @@ class Menu:
 
             play_button.button_render(LoadingImages.GAME_SCREEN)
 
-            # stats_button.button_render(LoadingImages.GAME_SCREEN)
-            # binds_button.button_render(LoadingImages.GAME_SCREEN)
+            stats_button.button_render(LoadingImages.GAME_SCREEN)
+            binds_button.button_render(LoadingImages.GAME_SCREEN)
             settings_button.button_render(LoadingImages.GAME_SCREEN)
             quit_button.button_render(LoadingImages.GAME_SCREEN)
 
             Button.button_hover_render(play_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            # Button.button_hover_render(stats_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            # Button.button_hover_render(binds_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+            Button.button_hover_render(stats_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+            Button.button_hover_render(binds_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
             Button.button_hover_render(settings_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
             Button.button_hover_render(quit_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
@@ -68,10 +68,10 @@ class Menu:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if play_button.on_click(mouse_coordinates):
                         Match.f_match()
-                    # if stats_button.on_click(mouse_coordinates):
-                    # Menu.first_map_stats()
-                    # if binds_button.on_click(mouse_coordinates):
-                    # Menu.binds()
+                    if stats_button.on_click(mouse_coordinates):
+                        Menu.stats()
+                    if binds_button.on_click(mouse_coordinates):
+                        Menu.binds()
                     if settings_button.on_click(mouse_coordinates):
                         Menu.game_settings()
                     if quit_button.on_click(mouse_coordinates):
@@ -79,7 +79,74 @@ class Menu:
 
             pygame.display.update()
 
-        # GAME BINDS ---------------------------------------------------------------------------------------------------
+    @staticmethod
+    def stats():
+
+        global pointer_left_button, pointer_right_button
+
+        loading = 1
+
+        while 1:
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
+
+            while loading:
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[2]["BACKGROUND"], (0, 0))
+                DrawUI.draw_text("Loading Stats.", LoadingImages.NORMAL_FONT, "white", 780, 230,
+                                 LoadingImages.GAME_SCREEN)
+                pygame.display.update()
+                pygame.time.wait(300)
+
+                DrawUI.draw_text("Loading Stats..", LoadingImages.NORMAL_FONT, "white", 780, 230,
+                                 LoadingImages.GAME_SCREEN)
+                pygame.display.update()
+                pygame.time.wait(300)
+
+                DrawUI.draw_text("Loading Stats...", LoadingImages.NORMAL_FONT, "white", 780, 230,
+                                 LoadingImages.GAME_SCREEN)
+                pygame.display.update()
+                pygame.time.wait(300)
+                loading = False
+
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
+            mouse_coordinates = pygame.mouse.get_pos()
+
+            DrawUI.draw_text("STATS", LoadingImages.BIG_FONT, Menu.TITLE_COLOR, 840, Menu.TITLE_Y,
+                             LoadingImages.GAME_SCREEN)
+
+            DrawUI.draw_text("WINS", LoadingImages.MEDIUM_FONT, "purple", 680, 330,
+                             LoadingImages.GAME_SCREEN)
+
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.trophy_icon, (750, 400))
+            DrawUI.draw_text(f"{Settings.win_coins}", LoadingImages.BIG_FONT, "white", 630, 400,
+                             LoadingImages.GAME_SCREEN)
+
+            DrawUI.draw_text("SCORE", LoadingImages.MEDIUM_FONT, "purple", 1180, 330,
+                             LoadingImages.GAME_SCREEN)
+
+            # LoadingImages.GAME_SCREEN.blit(LoadingImages.trophy_icon, (750, 400))
+            DrawUI.draw_text(f"{Settings.win_coins}", LoadingImages.BIG_FONT, "white", 1170, 400,
+                             LoadingImages.GAME_SCREEN)
+
+            back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
+                                 button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
+                                 font_hover_color="red")
+
+            back_button.button_render(LoadingImages.GAME_SCREEN)
+
+            Button.button_hover_render(back_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+
+                if event.type == pygame.MOUSEBUTTONDOWN:
+
+                    if back_button.on_click(mouse_coordinates):
+                        Menu.main_menu()
+
+            pygame.display.update()
+
+    # GAME BINDS ---------------------------------------------------------------------------------------------------
 
     @staticmethod
     def binds():
@@ -90,7 +157,7 @@ class Menu:
             DrawUI.draw_text("BINDS", LoadingImages.BIG_FONT, Menu.TITLE_COLOR, 850, Menu.TITLE_Y,
                              LoadingImages.GAME_SCREEN)
 
-            DrawUI.draw_text("CAR CONTROL", LoadingImages.NORMAL_FONT, "purple", 495, 200, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("CONTROL", LoadingImages.NORMAL_FONT, "purple", 495, 200, LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("W", LoadingImages.MEDIUM_FONT, "white", 595, 280, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("I", LoadingImages.MEDIUM_FONT, "white", 663, 280, LoadingImages.GAME_SCREEN)
@@ -110,11 +177,11 @@ class Menu:
 
             DrawUI.draw_text("CAR ABILITIES", LoadingImages.NORMAL_FONT, "purple", 495, 480, LoadingImages.GAME_SCREEN)
 
-            DrawUI.draw_text("E", LoadingImages.MEDIUM_FONT, "white", 632, 560, LoadingImages.GAME_SCREEN)
-            DrawUI.draw_text("Nitro", LoadingImages.MEDIUM_FONT, "cyan", 1220, 560, LoadingImages.GAME_SCREEN)
+            #DrawUI.draw_text("E", LoadingImages.MEDIUM_FONT, "white", 632, 560, LoadingImages.GAME_SCREEN)
+            #DrawUI.draw_text("Nitro", LoadingImages.MEDIUM_FONT, "cyan", 1220, 560, LoadingImages.GAME_SCREEN)
 
-            DrawUI.draw_text("Q", LoadingImages.MEDIUM_FONT, "white", 630, 610, LoadingImages.GAME_SCREEN)
-            DrawUI.draw_text("Faster Movement", LoadingImages.MEDIUM_FONT, "cyan", 1220, 610, LoadingImages.GAME_SCREEN)
+            #DrawUI.draw_text("Q", LoadingImages.MEDIUM_FONT, "white", 630, 610, LoadingImages.GAME_SCREEN)
+            #DrawUI.draw_text("Faster Movement", LoadingImages.MEDIUM_FONT, "cyan", 1220, 610, LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("IN-GAME", LoadingImages.NORMAL_FONT, "purple", 550, 660, LoadingImages.GAME_SCREEN)
 

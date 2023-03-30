@@ -29,6 +29,15 @@ class LoadingImages:
     FLAGS = pygame.FULLSCREEN | pygame.DOUBLEBUF | pygame.HWSURFACE
     GAME_SCREEN = pygame.display.set_mode((WIDTH, HEIGHT), FLAGS, 16, vsync=Settings.vsync)
 
+    # ICONS ------------------------------------------------------------------------------------------------------------
+    trophy_icon = res(pygame.image.load("../images/icons/trophy-icon.png"), 0.2).convert_alpha()
+
+    # FONTS ------------------------------------------------------------------------------------------------------------
+    NORMAL_FONT = pygame.font.SysFont("impact", 60)
+    SMALL_FONT = pygame.font.SysFont("impact", 20)
+    BIG_FONT = pygame.font.SysFont("impact", 100)
+    MEDIUM_FONT = pygame.font.SysFont("impact", 35)
+
     # BACKGROUNDS ------------------------------------------------------------------------------------------------------
 
     MENU_BACKGROUND = {
@@ -66,10 +75,10 @@ class LoadingImages:
         2: {"BUTTON": res(pygame.image.load("../images/ui/buttons/button_transparent.png"), 1.3).convert_alpha()},
 
         3: {"BUTTON": res(pygame.image.load("../images/ui/buttons/button.png"), 1).convert_alpha()},
-        # 4: {"BUTTON": res(pygame.image.load("../images/ui/buttons/button_win_lose.png"), 1.5).convert_alpha()},
+        #4: {"BUTTON": res(pygame.image.load("../images/ui/buttons/button_win_lose.png"), 1.5).convert_alpha()},
 
         5: {"BUTTON": res(pygame.image.load("../images/ui/buttons/settings_button.png"), 0.1).convert_alpha()},
-        # 6: {"BUTTON": res(pygame.image.load("../images/ui/buttons/binds_button.png"), 0.15).convert_alpha()}
+        6: {"BUTTON": res(pygame.image.load("../images/ui/buttons/binds_button.png"), 0.15).convert_alpha()}
 
     }
 
@@ -79,9 +88,3 @@ class LoadingImages:
         2: {"BUTTON": res(pygame.image.load("../images/ui/buttons/on_off_button.png"), 2).convert_alpha()}
 
     }
-
-    # FONTS ------------------------------------------------------------------------------------------------------------
-    NORMAL_FONT = pygame.font.SysFont("impact", 60)
-    SMALL_FONT = pygame.font.SysFont("impact", 20)
-    BIG_FONT = pygame.font.SysFont("impact", 100)
-    MEDIUM_FONT = pygame.font.SysFont("impact", 35)

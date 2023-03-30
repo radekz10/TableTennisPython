@@ -1,8 +1,5 @@
 import pygame
 
-from pong_game.ui.draw_ui import DrawUI
-from pong_game.ui.loading_images import LoadingImages
-
 
 class Player:
 
@@ -31,7 +28,7 @@ class Player:
         rect_angle = pygame.transform.rotate(self.image, self.angle)
         rect = rect_angle.get_rect(topleft=(self.x, self.y),
                                    center=(
-                                   self.x + (self.image.get_width() / 2), self.y + (self.image.get_height() / 2)))
+                                       self.x + (self.image.get_width() / 2), self.y + (self.image.get_height() / 2)))
 
         return rect
 
@@ -52,5 +49,3 @@ class Player:
 
     def rotate_right(self):
         self.angle += self.angle
-
-

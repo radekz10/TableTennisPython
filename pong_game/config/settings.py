@@ -1,3 +1,6 @@
+from pong_game.storage.data_processing import DataProcessing
+
+
 class Settings:
     started = False
 
@@ -17,3 +20,14 @@ class Settings:
 
     f_player_score = 0
     s_player_score = 0
+
+    FILE_PATHS = {
+
+        1: {"FILE": "../pong_game/storage/files/wins.txt"},
+    }
+
+    win_file = DataProcessing.load_wins(FILE_PATHS[1]["FILE"])
+
+    win_coins = int(win_file[len(win_file) - 1])
+    # win_coins = 30
+    # print(win_coins)
