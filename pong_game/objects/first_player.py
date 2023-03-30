@@ -15,6 +15,15 @@ class FirstPlayer(Player):
         if self.x >= 600:
             self.x = 600
 
+        if self.x <= 300:
+            self.x = 300
+
+        if self.y <= 280:
+            self.y = 280
+
+        if self.y >= 680:
+            self.y = 680
+
     def xy_position(self):
         DrawUI.draw_text(f"Y - ( {round(self.y)} )", LoadingImages.SMALL_FONT, "white", 120, 1030,
                          LoadingImages.GAME_SCREEN)

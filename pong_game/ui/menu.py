@@ -124,7 +124,7 @@ class Menu:
                              LoadingImages.GAME_SCREEN)
 
             # LoadingImages.GAME_SCREEN.blit(LoadingImages.trophy_icon, (750, 400))
-            DrawUI.draw_text(f"{Settings.win_coins}", LoadingImages.BIG_FONT, "white", 1170, 400,
+            DrawUI.draw_text(f"{Settings.score_coins}", LoadingImages.BIG_FONT, "white", 1170, 400,
                              LoadingImages.GAME_SCREEN)
 
             back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),

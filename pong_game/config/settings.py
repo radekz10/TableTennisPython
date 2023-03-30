@@ -25,10 +25,17 @@ class Settings:
     FILE_PATHS = {
 
         1: {"FILE": "../pong_game/storage/files/wins.txt"},
+        2: {"FILE": "../pong_game/storage/files/score.txt"},
     }
 
-    win_file = DataProcessing.load_wins(FILE_PATHS[1]["FILE"])
+    win_file = DataProcessing.load_data(FILE_PATHS[1]["FILE"])
+    score_file = DataProcessing.load_data(FILE_PATHS[2]["FILE"])
 
     win_coins = int(win_file[len(win_file) - 1])
+    score_coins = int(score_file[len(score_file) - 1])
+
     # win_coins = 30
     # print(win_coins)
+
+    # score_coins = 30
+    # print(score_coins)

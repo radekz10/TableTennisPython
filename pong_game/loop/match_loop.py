@@ -62,8 +62,8 @@ class MatchLoop:
 
                 KeyBinds.key_binds(f_player, s_player, match_restart)
 
-                # f_player.max_pos()
-                # s_player.max_pos()
+                f_player.max_pos()
+                s_player.max_pos()
 
                 Collisions.check_collisions(f_player, s_player, ball)
 
