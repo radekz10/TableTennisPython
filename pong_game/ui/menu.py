@@ -177,11 +177,11 @@ class Menu:
 
             DrawUI.draw_text("CAR ABILITIES", LoadingImages.NORMAL_FONT, "purple", 495, 480, LoadingImages.GAME_SCREEN)
 
-            #DrawUI.draw_text("E", LoadingImages.MEDIUM_FONT, "white", 632, 560, LoadingImages.GAME_SCREEN)
-            #DrawUI.draw_text("Nitro", LoadingImages.MEDIUM_FONT, "cyan", 1220, 560, LoadingImages.GAME_SCREEN)
+            # DrawUI.draw_text("E", LoadingImages.MEDIUM_FONT, "white", 632, 560, LoadingImages.GAME_SCREEN)
+            # DrawUI.draw_text("Nitro", LoadingImages.MEDIUM_FONT, "cyan", 1220, 560, LoadingImages.GAME_SCREEN)
 
-            #DrawUI.draw_text("Q", LoadingImages.MEDIUM_FONT, "white", 630, 610, LoadingImages.GAME_SCREEN)
-            #DrawUI.draw_text("Faster Movement", LoadingImages.MEDIUM_FONT, "cyan", 1220, 610, LoadingImages.GAME_SCREEN)
+            # DrawUI.draw_text("Q", LoadingImages.MEDIUM_FONT, "white", 630, 610, LoadingImages.GAME_SCREEN)
+            # DrawUI.draw_text("Faster Movement", LoadingImages.MEDIUM_FONT, "cyan", 1220, 610, LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("IN-GAME", LoadingImages.NORMAL_FONT, "purple", 550, 660, LoadingImages.GAME_SCREEN)
 
@@ -224,6 +224,7 @@ class Menu:
             DrawUI.draw_text("VSYNC", LoadingImages.NORMAL_FONT, "cyan", 620, 400, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("UI", LoadingImages.NORMAL_FONT, "cyan", 620, 500, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("FPS", LoadingImages.NORMAL_FONT, "cyan", 620, 600, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("XY", LoadingImages.NORMAL_FONT, "cyan", 620, 700, LoadingImages.GAME_SCREEN)
 
             audio_on_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1220, 340),
                                      button_text="ON", font=LoadingImages.SMALL_FONT, font_color="white",
@@ -254,6 +255,13 @@ class Menu:
                                          button_text="OFF", font=LoadingImages.SMALL_FONT, font_color="white",
                                          font_hover_color="purple")
 
+            show_xy_on_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1220, 740),
+                                       button_text="ON", font=LoadingImages.SMALL_FONT, font_color="white",
+                                       font_hover_color="cyan")
+            show_xy_off_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1300, 740),
+                                        button_text="OFF", font=LoadingImages.SMALL_FONT, font_color="white",
+                                        font_hover_color="purple")
+
             back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                                  font_hover_color="red")
@@ -266,6 +274,9 @@ class Menu:
 
             show_ui_on_button.button_render(LoadingImages.GAME_SCREEN)
             show_ui_off_button.button_render(LoadingImages.GAME_SCREEN)
+
+            show_xy_on_button.button_render(LoadingImages.GAME_SCREEN)
+            show_xy_off_button.button_render(LoadingImages.GAME_SCREEN)
 
             show_fps_on_button.button_render(LoadingImages.GAME_SCREEN)
             show_fps_off_button.button_render(LoadingImages.GAME_SCREEN)
@@ -280,6 +291,9 @@ class Menu:
 
             Button.button_hover_render(show_ui_on_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
             Button.button_hover_render(show_ui_off_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+
+            Button.button_hover_render(show_xy_on_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+            Button.button_hover_render(show_xy_off_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
             Button.button_hover_render(show_fps_on_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
             Button.button_hover_render(show_fps_off_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
@@ -301,6 +315,8 @@ class Menu:
                         show_ui_off_button: ("UI OFF!", 900, 210, 2),
                         show_fps_on_button: ("FPS ON!", 890, 210, 1),
                         show_fps_off_button: ("FPS OFF!", 890, 210, 2),
+                        show_xy_on_button: ("X-Y ON!", 890, 210, 1),
+                        show_xy_off_button: ("X-Y OFF!", 890, 210, 2),
                     }
 
                     for button, (text, x, y, value) in settings_options.items():
@@ -315,6 +331,8 @@ class Menu:
                                 Settings.show_ui = value
                             elif button in (show_fps_on_button, show_fps_off_button):
                                 Settings.show_fps = value
+                            elif button in (show_xy_on_button, show_xy_off_button):
+                                Settings.show_xy = value
 
                             DrawUI.draw_text(text, LoadingImages.NORMAL_FONT, "green", x, y, LoadingImages.GAME_SCREEN)
                             pygame.display.update()

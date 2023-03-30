@@ -1,7 +1,6 @@
 import pygame
 
 from pong_game.config.settings import Settings
-from pong_game.objects.ball import Ball
 from pong_game.ui.draw_ui import DrawUI
 from pong_game.ui.loading_images import LoadingImages
 
@@ -90,6 +89,21 @@ class LoopFunctions:
 
             ball.movement()
 
+    @staticmethod
+    def check_show_fps(command, clock):
+        if Settings.show_fps == 1:
+            command(clock)
+
+    @staticmethod
+    def check_show_xy(command):
+        if Settings.show_xy == 1:
+            command()
+
+    @staticmethod
+    def check_audio(command):
+        if Settings.audio == 1:
+            command()
+
 
 class Collisions:
     @staticmethod
@@ -110,3 +124,5 @@ class Collisions:
     def check_collisions(f_player, s_player, ball):
         Collisions.f_player_vs_ball(ball, f_player.get_rect(), ball.get_rect())
         Collisions.s_player_vs_ball(ball, s_player.get_rect(), ball.get_rect())
+
+
