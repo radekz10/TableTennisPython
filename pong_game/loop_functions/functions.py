@@ -14,7 +14,7 @@ class LoopFunctions:
         Settings.started = False
 
         while not Settings.started:
-            # LoadingImages.GAME_SCREEN.blit(LoadingImages.TIME_TABLES[1]["TABLE"], (700, 200))
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[4]["BACKGROUND"], (700, 200))
             DrawUI.draw_text("PLAY AGAIN - SPACE", LoadingImages.NORMAL_FONT, "white", 740, 250,
                              LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("EXIT TO MENU - X", LoadingImages.NORMAL_FONT, "cyan", 740, 350, LoadingImages.GAME_SCREEN)
@@ -147,7 +147,7 @@ class Collisions:
             pygame.display.update()
             pygame.time.wait(1000)
 
-            #LoopFunctions.start_game()
+            LoopFunctions.check_new_game()
 
         if Settings.s_player_score == 5:
             Sounds.win.play()
@@ -155,4 +155,4 @@ class Collisions:
             pygame.display.update()
             pygame.time.wait(1000)
 
-            #LoopFunctions.start_game()
+            LoopFunctions.check_new_game()

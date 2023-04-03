@@ -45,7 +45,8 @@ class LoadingImages:
 
         1: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/wallpaper.jpg"), 0.75).convert_alpha()},
         2: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/grey_wallpaper.jpg"), 1).convert_alpha()},
-        3: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/wallpaper_light.jpg"), 1).convert_alpha()}
+        3: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/wallpaper_light.jpg"), 1).convert_alpha()},
+        4: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/time_background3.png"), 1).convert_alpha()}
 
     }
 
