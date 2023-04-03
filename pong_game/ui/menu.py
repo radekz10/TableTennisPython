@@ -90,7 +90,7 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
 
             while loading:
-                LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[2]["BACKGROUND"], (0, 0))
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[3]["BACKGROUND"], (0, 0))
                 DrawUI.draw_text("Loading Stats.", LoadingImages.NORMAL_FONT, "white", 780, 230,
                                  LoadingImages.GAME_SCREEN)
                 pygame.display.update()
@@ -116,10 +116,11 @@ class Menu:
             DrawUI.draw_text("WINS", LoadingImages.MEDIUM_FONT, "purple", 680, 330,
                              LoadingImages.GAME_SCREEN)
 
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.trophy_icon, (750, 400))
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.trophy_icon, (750, 410))
             DrawUI.draw_text(f"{Settings.win_coins}", LoadingImages.BIG_FONT, "white", 630, 400,
                              LoadingImages.GAME_SCREEN)
 
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.star_icon, (1250, 405))
             DrawUI.draw_text("SCORE", LoadingImages.MEDIUM_FONT, "purple", 1180, 330,
                              LoadingImages.GAME_SCREEN)
 

@@ -43,7 +43,7 @@ class MatchLoop:
 
                 ball.render_position(LoadingImages.GAME_SCREEN)
 
-                #LoopFunctions.check_show_ui(DrawUI.ui, player_car, car_stopwatch)
+                # LoopFunctions.check_show_ui(DrawUI.ui, player_car, car_stopwatch)
                 LoopFunctions.check_show_xy(f_player.xy_position)
                 LoopFunctions.check_show_xy(s_player.xy_position)
                 LoopFunctions.check_show_fps(DrawUI.game_show_fps, clock)
