@@ -1,9 +1,7 @@
 # TableTennisPython
 
-- palky, micek, stul, menu
-- kolize 
+- palky, micek, menu 
 - odrazeni, pohyb micku
 - ui
 - game menu
-- ovladani WSAD, IJKL
 - mody - solo, 1v1 
