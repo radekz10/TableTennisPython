@@ -158,7 +158,7 @@ class Menu:
             DrawUI.draw_text("BINDS", LoadingImages.BIG_FONT, Menu.TITLE_COLOR, 850, Menu.TITLE_Y,
                              LoadingImages.GAME_SCREEN)
 
-            DrawUI.draw_text("CONTROL", LoadingImages.NORMAL_FONT, "purple", 495, 200, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("CONTROL", LoadingImages.NORMAL_FONT, "purple", 540, 200, LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("W", LoadingImages.MEDIUM_FONT, "white", 595, 280, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("I", LoadingImages.MEDIUM_FONT, "white", 663, 280, LoadingImages.GAME_SCREEN)
@@ -176,7 +176,7 @@ class Menu:
             DrawUI.draw_text("L", LoadingImages.MEDIUM_FONT, "white", 660, 430, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("Right", LoadingImages.MEDIUM_FONT, "cyan", 1220, 430, LoadingImages.GAME_SCREEN)
 
-            DrawUI.draw_text("CAR ABILITIES", LoadingImages.NORMAL_FONT, "purple", 495, 480, LoadingImages.GAME_SCREEN)
+            #DrawUI.draw_text("CAR ABILITIES", LoadingImages.NORMAL_FONT, "purple", 495, 480, LoadingImages.GAME_SCREEN)
 
             # DrawUI.draw_text("E", LoadingImages.MEDIUM_FONT, "white", 632, 560, LoadingImages.GAME_SCREEN)
             # DrawUI.draw_text("Nitro", LoadingImages.MEDIUM_FONT, "cyan", 1220, 560, LoadingImages.GAME_SCREEN)

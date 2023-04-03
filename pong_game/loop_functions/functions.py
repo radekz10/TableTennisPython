@@ -1,6 +1,7 @@
 import pygame
 
 from pong_game.config.settings import Settings
+from pong_game.sounds.sounds import Sounds
 from pong_game.storage.data_processing import DataProcessing
 from pong_game.ui.draw_ui import DrawUI
 from pong_game.ui.loading_images import LoadingImages
@@ -24,7 +25,6 @@ class LoopFunctions:
                     pygame.quit()
                 if event.type == pygame.KEYDOWN:
                     Settings.started = 1
-                    Settings.car_start_time = pygame.time.get_ticks()
 
     @staticmethod
     def start_game():
@@ -39,9 +39,6 @@ class LoopFunctions:
                     pygame.quit()
                 if event.type == pygame.KEYDOWN:
                     Settings.started = 1
-
-                    Settings.car_start_time = pygame.time.get_ticks()
-                    Settings.enemy_start_time = pygame.time.get_ticks()
 
     @staticmethod
     def start_countdown(f_player, s_player, ball):
@@ -69,6 +66,7 @@ class LoopFunctions:
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown == 4:
+            Sounds.countdown.play()
             DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, color, x, y,
                              LoadingImages.GAME_SCREEN)
 
@@ -110,6 +108,7 @@ class Collisions:
     @staticmethod
     def f_player_vs_ball(ball, f_player_rect, ball_rect):
         if f_player_rect.colliderect(ball_rect):
+            Sounds.ball_hit.play()
             ball.collision()
             # Settings.f_player_score += 1
             ball.angle += 50
@@ -117,6 +116,7 @@ class Collisions:
     @staticmethod
     def s_player_vs_ball(ball, s_player_rect, ball_rect):
         if s_player_rect.colliderect(ball_rect):
+            Sounds.ball_hit.play()
             ball.collisionn()
             # Settings.s_player_score += 1
             ball.angle -= 50
@@ -139,18 +139,20 @@ class Collisions:
     @staticmethod
     def check_score():
         if Settings.f_player_score == 5:
+            Sounds.win.play()
             DataProcessing.save_data(str(Settings.win_coins), Settings.FILE_PATHS[1]["FILE"])
             DataProcessing.save_data(str(Settings.score_coins), Settings.FILE_PATHS[2]["FILE"])
 
-            DrawUI.draw_text("I. PLAYER WON!", LoadingImages.BIG_FONT, "gold", 800, 800, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("I. PLAYER WON!", LoadingImages.BIG_FONT, "gold", 700, 600, LoadingImages.GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(1000)
 
-            LoopFunctions.check_new_game()
+            #LoopFunctions.start_game()
 
         if Settings.s_player_score == 5:
-            DrawUI.draw_text("II. PLAYER WON!", LoadingImages.BIG_FONT, "gold", 800, 800, LoadingImages.GAME_SCREEN)
+            Sounds.win.play()
+            DrawUI.draw_text("II. PLAYER WON!", LoadingImages.BIG_FONT, "gold", 700, 600, LoadingImages.GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(1000)
 
-            LoopFunctions.check_new_game()
+            #LoopFunctions.start_game()
