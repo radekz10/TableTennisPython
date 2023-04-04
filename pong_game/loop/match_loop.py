@@ -57,7 +57,7 @@ class MatchLoop:
                 ball.out_of_screen()
 
                 Collisions.check_ball_pos(ball, f_player, s_player)
-                Collisions.check_score()
+                Collisions.check_score(match_restart)
 
                 ball.ball_pos()
 

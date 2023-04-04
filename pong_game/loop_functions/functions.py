@@ -25,13 +25,13 @@ class LoopFunctions:
                     pygame.quit()
                 if event.type == pygame.KEYDOWN:
                     Settings.started = 1
+                    #Match.f_match()
 
     @staticmethod
     def start_game():
         while not Settings.started:
             DrawUI.draw_text(f"PRESS ANY KEY TO START", LoadingImages.MEDIUM_FONT, "orange", 800, 600,
                              LoadingImages.GAME_SCREEN)
-
             pygame.display.update()
 
             for event in pygame.event.get():
@@ -137,7 +137,7 @@ class Collisions:
             ball.respawn()
 
     @staticmethod
-    def check_score():
+    def check_score(restart_map):
         if Settings.f_player_score == 5:
             Sounds.win.play()
             DataProcessing.save_data(str(Settings.win_coins), Settings.FILE_PATHS[1]["FILE"])
@@ -148,6 +148,7 @@ class Collisions:
             pygame.time.wait(1000)
 
             LoopFunctions.check_new_game()
+            restart_map()
 
         if Settings.s_player_score == 5:
             Sounds.win.play()
@@ -156,3 +157,4 @@ class Collisions:
             pygame.time.wait(1000)
 
             LoopFunctions.check_new_game()
+            restart_map()
