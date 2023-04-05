@@ -9,6 +9,10 @@ class Sounds:
     ball_hit = pygame.mixer.Sound("../sound_effects/ball_hit.mp3")
     ball_hit.set_volume(0.05)
 
+    bat_ball_hit = pygame.mixer.Sound("../sound_effects/bat_ball_hit.ogg")
+    bat_ball_hit.set_volume(0.05)
+
+
     # GAME EVENT SOUNDS -----------------------------------------------------------------------------------------------
 
     countdown = pygame.mixer.Sound("../sound_effects/countdown.wav")

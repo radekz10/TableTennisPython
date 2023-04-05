@@ -3,6 +3,7 @@ import pygame
 from pong_game.config.settings import Settings
 from pong_game.handler.keybinds import KeyBinds
 from pong_game.loop_functions.functions import LoopFunctions, Collisions
+from pong_game.sounds.sounds import Sounds
 from pong_game.ui.draw_ui import DrawUI
 from pong_game.ui.loading_images import LoadingImages
 
@@ -59,30 +60,33 @@ class MatchLoop:
 
                 if ball.x <= 500 or ball.x >= 1450:
                     ball.x *= -1
+                    #Sounds.ball_hit.play()
                     # self.y = 500
                 if ball.y <= 300 or ball.y >= 800:
                     ball.y *= -1
+                    Sounds.ball_hit.play()
 
                 if f_player.get_rect().colliderect(ball.get_rect()) or s_player.get_rect().colliderect(ball.get_rect()):
                     ball.speed *= -1
+                    Sounds.bat_ball_hit.play()
 
                 # if ball.x <= 500 or ball.x >= 1450:
                 # ball.x *= -1
 
-                if ball.x < 500:
+                #if ball.x < 500:
                     # ball.x = 700
                     # ball.respawn()
-                    Settings.s_player_score += 1
+                    #Settings.f_player_score += 1
 
-                if ball.x > 1450:
+                #if ball.x > 1450:
                     # ball.respawn()
-                    Settings.f_player_score += 1
+                    #Settings.s_player_score += 1
 
-                if ball.x < 200:
-                    ball.respawn()
+                #if ball.x < 200:
+                    #ball.respawn()
 
-                if ball.x > 1850:
-                    ball.respawn()
+                #if ball.x > 1850:
+                    #ball.respawn()
 
                     # self.y = 500
                 # if ball.y <= 0 or ball.y >= 1080:
@@ -90,7 +94,7 @@ class MatchLoop:
 
                 # ball.out_of_screen()
 
-                # Collisions.check_ball_pos(ball, f_player, s_player)
+                Collisions.check_ball_pos(ball)
                 # Collisions.check_score(match_restart)
 
                 # ball.ball_pos()

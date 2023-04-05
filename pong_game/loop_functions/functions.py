@@ -134,7 +134,7 @@ class Collisions:
         Collisions.s_player_vs_ball(ball, s_player.get_rect(), ball.get_rect(), s_player)
 
     @staticmethod
-    def check_ball_pos(ball, f_player, s_player):
+    def check_ball_pos(ball):
         if ball.x <= 450:
             Settings.s_player_score += 1
             ball.respawn()
