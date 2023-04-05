@@ -6,7 +6,7 @@ from pong_game.ui.loading_images import LoadingImages
 class Ball:
 
     def __init__(self):
-        self.image = LoadingImages.PONG_BALL[1]["BALL"]
+        self.image = LoadingImages.PONG_BALL[2]["BALL"]
         self.x = 900
         self.y = 540
         self.speed = 10

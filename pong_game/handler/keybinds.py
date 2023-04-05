@@ -36,16 +36,16 @@ class KeyBinds:
     def s_player_key_binds(s_player, match_restart):
         pressed_key = pygame.key.get_pressed()
 
-        if pressed_key[pygame.K_UP]:
+        if pressed_key[pygame.K_i]:
             s_player.up()
 
-        if pressed_key[pygame.K_DOWN]:
+        if pressed_key[pygame.K_k]:
             s_player.down()
 
-        if pressed_key[pygame.K_LEFT]:
+        if pressed_key[pygame.K_j]:
             s_player.left()
 
-        if pressed_key[pygame.K_RIGHT]:
+        if pressed_key[pygame.K_l]:
             s_player.right()
 
         if pressed_key[pygame.K_r]:

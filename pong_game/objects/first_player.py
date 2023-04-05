@@ -8,7 +8,7 @@ class FirstPlayer(Player):
     x_position = 450
     y_position = 540
 
-    image = LoadingImages.PONG_BATS[1]["BAT"]
+    image = LoadingImages.PONG_BATS[3]["BAT"]
     angle = 360
 
     def max_pos(self):
