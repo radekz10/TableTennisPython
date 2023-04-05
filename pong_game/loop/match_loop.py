@@ -13,6 +13,9 @@ class MatchLoop:
 
         pygame.event.set_allowed(pygame.KEYDOWN)
 
+        Settings.f_player_score = 0
+        Settings.s_player_score = 0
+
         game_loop = 1
 
         Settings.countdown = 5
@@ -54,7 +57,7 @@ class MatchLoop:
                 ball.out_of_screen()
 
                 Collisions.check_ball_pos(ball, f_player, s_player)
-                Collisions.check_score()
+                Collisions.check_score(match_restart)
 
                 ball.ball_pos()
 
@@ -67,8 +70,8 @@ class MatchLoop:
 
                 KeyBinds.key_binds(f_player, s_player, match_restart)
 
-                f_player.max_pos()
-                s_player.max_pos()
+                #f_player.max_pos()
+                #s_player.max_pos()
 
                 Collisions.check_collisions(f_player, s_player, ball)
 

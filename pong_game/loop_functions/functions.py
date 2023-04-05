@@ -14,7 +14,7 @@ class LoopFunctions:
         Settings.started = False
 
         while not Settings.started:
-            # LoadingImages.GAME_SCREEN.blit(LoadingImages.TIME_TABLES[1]["TABLE"], (700, 200))
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[4]["BACKGROUND"], (700, 200))
             DrawUI.draw_text("PLAY AGAIN - SPACE", LoadingImages.NORMAL_FONT, "white", 740, 250,
                              LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("EXIT TO MENU - X", LoadingImages.NORMAL_FONT, "cyan", 740, 350, LoadingImages.GAME_SCREEN)
@@ -25,13 +25,13 @@ class LoopFunctions:
                     pygame.quit()
                 if event.type == pygame.KEYDOWN:
                     Settings.started = 1
+                    #Match.f_match()
 
     @staticmethod
     def start_game():
         while not Settings.started:
             DrawUI.draw_text(f"PRESS ANY KEY TO START", LoadingImages.MEDIUM_FONT, "orange", 800, 600,
                              LoadingImages.GAME_SCREEN)
-
             pygame.display.update()
 
             for event in pygame.event.get():
@@ -137,7 +137,7 @@ class Collisions:
             ball.respawn()
 
     @staticmethod
-    def check_score():
+    def check_score(restart_map):
         if Settings.f_player_score == 5:
             Sounds.win.play()
             DataProcessing.save_data(str(Settings.win_coins), Settings.FILE_PATHS[1]["FILE"])
@@ -147,7 +147,8 @@ class Collisions:
             pygame.display.update()
             pygame.time.wait(1000)
 
-            #LoopFunctions.start_game()
+            LoopFunctions.check_new_game()
+            restart_map()
 
         if Settings.s_player_score == 5:
             Sounds.win.play()
@@ -155,4 +156,5 @@ class Collisions:
             pygame.display.update()
             pygame.time.wait(1000)
 
-            #LoopFunctions.start_game()
+            LoopFunctions.check_new_game()
+            restart_map()
