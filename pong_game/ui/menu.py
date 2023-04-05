@@ -30,7 +30,7 @@ class Menu:
                                  font=LoadingImages.BIG_FONT,
                                  font_color="white", font_hover_color="cyan")
 
-            stats_button = Button(button_image=LoadingImages.BUTTONS[1]["BUTTON"], x_y=(1196, 630),
+            stats_button = Button(button_image=LoadingImages.BUTTONS[1]["BUTTON"], x_y=(977, 580),
                                   button_text="STATS",
                                   font=LoadingImages.NORMAL_FONT,
                                   font_color="white", font_hover_color="cyan")
@@ -125,7 +125,7 @@ class Menu:
                              LoadingImages.GAME_SCREEN)
 
             # LoadingImages.GAME_SCREEN.blit(LoadingImages.trophy_icon, (750, 400))
-            DrawUI.draw_text(f"{Settings.score_coins}", LoadingImages.BIG_FONT, "white", 1170, 400,
+            DrawUI.draw_text(f"{Settings.score_coins}", LoadingImages.BIG_FONT, "white", 1130, 400,
                              LoadingImages.GAME_SCREEN)
 
             back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),

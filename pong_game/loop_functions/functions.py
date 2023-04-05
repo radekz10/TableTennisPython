@@ -139,6 +139,8 @@ class Collisions:
     @staticmethod
     def check_score(restart_map):
         if Settings.f_player_score == 5:
+            Settings.win_coins += 1
+            Settings.score_coins += 5
             Sounds.win.play()
             DataProcessing.save_data(str(Settings.win_coins), Settings.FILE_PATHS[1]["FILE"])
             DataProcessing.save_data(str(Settings.score_coins), Settings.FILE_PATHS[2]["FILE"])
