@@ -54,12 +54,48 @@ class MatchLoop:
                 f_player.score()
                 s_player.score()
 
-                ball.out_of_screen()
+                ball.x += ball.speed
+                ball.y += ball.speed / 3
 
-                Collisions.check_ball_pos(ball, f_player, s_player)
-                Collisions.check_score(match_restart)
+                if ball.x <= 500 or ball.x >= 1450:
+                    ball.x *= -1
+                    # self.y = 500
+                if ball.y <= 300 or ball.y >= 800:
+                    ball.y *= -1
 
-                ball.ball_pos()
+                if f_player.get_rect().colliderect(ball.get_rect()) or s_player.get_rect().colliderect(ball.get_rect()):
+                    ball.speed *= -1
+
+                # if ball.x <= 500 or ball.x >= 1450:
+                # ball.x *= -1
+
+                if ball.x < 500:
+                    # ball.x = 700
+                    # ball.respawn()
+                    Settings.s_player_score += 1
+
+                if ball.x > 1450:
+                    # ball.respawn()
+                    Settings.f_player_score += 1
+
+                if ball.x < 200:
+                    ball.respawn()
+
+                if ball.x > 1850:
+                    ball.respawn()
+
+                    # self.y = 500
+                # if ball.y <= 0 or ball.y >= 1080:
+                # ball.y = 700
+
+                # ball.out_of_screen()
+
+                # Collisions.check_ball_pos(ball, f_player, s_player)
+                # Collisions.check_score(match_restart)
+
+                # ball.ball_pos()
+
+                # Collisions.col(ball)
 
                 LoopFunctions.start_game()
                 pygame.display.update()
@@ -70,9 +106,9 @@ class MatchLoop:
 
                 KeyBinds.key_binds(f_player, s_player, match_restart)
 
-                #f_player.max_pos()
-                #s_player.max_pos()
+                # f_player.max_pos()
+                # s_player.max_pos()
 
-                Collisions.check_collisions(f_player, s_player, ball)
+                # Collisions.check_collisions(f_player, s_player, ball)
 
             pygame.display.update()

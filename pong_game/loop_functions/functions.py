@@ -25,7 +25,7 @@ class LoopFunctions:
                     pygame.quit()
                 if event.type == pygame.KEYDOWN:
                     Settings.started = 1
-                    #Match.f_match()
+                    # Match.f_match()
 
     @staticmethod
     def start_game():
@@ -86,7 +86,12 @@ class LoopFunctions:
             f_player.speed = 10
             s_player.speed = 10
 
-            ball.movement()
+            # ball.movement()
+            #ball.x += 1
+           # ball.x += ball.speed
+            #ball.y += ball.speed
+
+
 
     @staticmethod
     def check_show_fps(command, clock):
@@ -114,17 +119,19 @@ class Collisions:
             ball.angle += 50
 
     @staticmethod
-    def s_player_vs_ball(ball, s_player_rect, ball_rect):
+    def s_player_vs_ball(ball, s_player_rect, ball_rect, s_player):
         if s_player_rect.colliderect(ball_rect):
             Sounds.ball_hit.play()
             ball.collisionn()
-            # Settings.s_player_score += 1
+            #Settings.s_player_score += 1
             ball.angle -= 50
+
+
 
     @staticmethod
     def check_collisions(f_player, s_player, ball):
         Collisions.f_player_vs_ball(ball, f_player.get_rect(), ball.get_rect())
-        Collisions.s_player_vs_ball(ball, s_player.get_rect(), ball.get_rect())
+        Collisions.s_player_vs_ball(ball, s_player.get_rect(), ball.get_rect(), s_player)
 
     @staticmethod
     def check_ball_pos(ball, f_player, s_player):
@@ -160,3 +167,32 @@ class Collisions:
 
             LoopFunctions.check_new_game()
             restart_map()
+
+    @staticmethod
+    def col(ball):
+        # CHECKING IF THE BALL HAS REACHED THE TOP AND BOTTOM EDGES OF THE TABLE
+        # if ball.y >= 800:
+        # Sounds.ball_hit.play()
+
+        #  ball.x = -ball.x
+        #  ball.y = -ball.y
+
+        # if ball.y <= 300:
+        #   Sounds.ball_hit.play()
+
+        #    ball.x = -ball.x
+        #   ball.y = -ball.y
+
+        if ball.x >= 1920:
+            Sounds.ball_hit.play()
+
+            ball.x = -ball.x
+        # ball.y = -ball.y
+
+        if ball.x <= 0:
+            Sounds.ball_hit.play()
+
+            ball.x = -ball.x
+        # ball.y = -ball.y
+
+

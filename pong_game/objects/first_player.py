@@ -1,3 +1,5 @@
+import pygame
+
 from pong_game.config.settings import Settings
 from pong_game.objects.player import Player
 from pong_game.ui.draw_ui import DrawUI
@@ -34,3 +36,5 @@ class FirstPlayer(Player):
     def score():
         DrawUI.draw_text(f"Score - {Settings.f_player_score}", LoadingImages.MEDIUM_FONT, "light blue", 50, 200,
                          LoadingImages.GAME_SCREEN)
+
+

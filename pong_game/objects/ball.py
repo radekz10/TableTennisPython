@@ -32,8 +32,12 @@ class Ball:
         self.x += 50
 
     def collisionn(self):
-        self.speed -= 10
-        self.x -= 50
+        #self.speed -= 10
+        #self.x -= 50
+
+        self.x = -self.x
+        self.y = -self.y
+
 
     def respawn(self):
         self.x = 900
@@ -54,8 +58,12 @@ class Ball:
         return rect
 
     def out_of_screen(self):
-        if self.x <= 0 or self.x >= 1920:
-            if self.y <= 0 or self.y >= 1080:
-                self.x = 900
-                self.y = 540
-                self.movement()
+        if self.y <= 0 or self.y >= 1920:
+            #self.y *= -1
+            self.y = 500
+        if self.x <= 0 or self.x >= 1080:
+            #self.x *= -1
+            self.x = 500
+
+
+        #if self.x

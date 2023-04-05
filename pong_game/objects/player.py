@@ -49,3 +49,9 @@ class Player:
 
     def rotate_right(self):
         self.angle += self.angle
+
+    def border_collide(self, map_border):
+        img = pygame.mask.from_surface(self.image)
+        out_of_track_detection = map_border.overlap(img, (self.x, self.y))
+
+        return out_of_track_detection
