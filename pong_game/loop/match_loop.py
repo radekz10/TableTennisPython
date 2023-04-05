@@ -1,3 +1,5 @@
+from random import randint
+
 import pygame
 
 from pong_game.config.settings import Settings
@@ -68,6 +70,8 @@ class MatchLoop:
 
                 if f_player.get_rect().colliderect(ball.get_rect()) or s_player.get_rect().colliderect(ball.get_rect()):
                     ball.speed *= -1
+                    #ball.x += -randint(7, 9)
+                    #ball.y += -randint(7, 9)
                     Sounds.bat_ball_hit.play()
 
                 # if ball.x <= 500 or ball.x >= 1450:

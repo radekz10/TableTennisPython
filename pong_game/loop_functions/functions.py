@@ -170,7 +170,7 @@ class Collisions:
 
     @staticmethod
     def col(ball):
-        # CHECKING IF THE BALL HAS REACHED THE TOP AND BOTTOM EDGES OF THE TABLE
+
         # if ball.y >= 800:
         # Sounds.ball_hit.play()
 
