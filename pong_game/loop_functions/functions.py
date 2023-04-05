@@ -87,11 +87,12 @@ class LoopFunctions:
             s_player.speed = 10
 
             # ball.movement()
-            #ball.x += 1
-           # ball.x += ball.speed
-            #ball.y += ball.speed
+            # ball.x += 1
+            # ball.x += ball.speed
+            # ball.y += ball.speed
 
-
+            ball.x += ball.speed
+            ball.y += ball.speed / 2
 
     @staticmethod
     def check_show_fps(command, clock):
@@ -123,10 +124,8 @@ class Collisions:
         if s_player_rect.colliderect(ball_rect):
             Sounds.ball_hit.play()
             ball.collisionn()
-            #Settings.s_player_score += 1
+            # Settings.s_player_score += 1
             ball.angle -= 50
-
-
 
     @staticmethod
     def check_collisions(f_player, s_player, ball):
@@ -194,5 +193,3 @@ class Collisions:
 
             ball.x = -ball.x
         # ball.y = -ball.y
-
-
