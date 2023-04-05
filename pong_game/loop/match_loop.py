@@ -57,13 +57,13 @@ class MatchLoop:
                 f_player.score()
                 s_player.score()
 
-                if ball.x <= 500 or ball.x >= 1450:
-                    ball.x *= -1
+                #if ball.x <= 500 or ball.x >= 1450:
+                    #ball.x *= -1
                     #Sounds.ball_hit.play()
                     # self.y = 500
-                if ball.y <= 300 or ball.y >= 800:
-                    ball.y *= -1
-                    Sounds.ball_hit.play()
+                #if ball.y <= 300 or ball.y >= 800:
+                    #ball.y *= -1
+                    #Sounds.ball_hit.play()
 
                 if f_player.get_rect().colliderect(ball.get_rect()):
                     ball.speed *= -1
@@ -76,6 +76,15 @@ class MatchLoop:
                     #ball.x += ball.speed
                     #ball.y += ball.speed / 2
                     Sounds.bat_ball_hit.play()
+
+                if ball.y >= LoadingImages.GAME_SCREEN.get_height() or ball.y <= 0:
+                    ball.speed *= -1
+                    Sounds.ball_hit.play()
+
+                if ball.x >= LoadingImages.GAME_SCREEN.get_width() or ball.x <= 0:
+                    ball.speed *= -1
+                    Sounds.ball_hit.play()
+
 
                 # if ball.x <= 500 or ball.x >= 1450:
                 # ball.x *= -1
@@ -101,7 +110,7 @@ class MatchLoop:
 
                 # ball.out_of_screen()
 
-                Collisions.check_ball_pos(ball)
+                #Collisions.check_ball_pos(ball)
                 # Collisions.check_score(match_restart)
 
                 # ball.ball_pos()

@@ -10,6 +10,8 @@ class Ball:
         self.x = 900
         self.y = 540
         self.speed = 10
+        self.speed_x = 10
+        self.speed_y = 10
         self.angle = 270
 
     @staticmethod
