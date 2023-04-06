@@ -1,3 +1,5 @@
+from random import randint
+
 import pygame
 
 from pong_game.config.settings import Settings
@@ -91,8 +93,12 @@ class LoopFunctions:
             # ball.x += ball.speed
             # ball.y += ball.speed
 
-            ball.x += ball.speed
-            ball.y += ball.speed / 2
+            ball.x += ball.speed_x
+            ball.y += ball.speed_y / 2
+            #ball.y += ball.speed / 2
+
+            #ball.x += randint(5, 10)
+            #ball.y += randint(5, 10) / 2
 
     @staticmethod
     def check_show_fps(command, clock):

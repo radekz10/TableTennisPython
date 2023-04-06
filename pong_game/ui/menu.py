@@ -68,6 +68,7 @@ class Menu:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if play_button.on_click(mouse_coordinates):
                         Match.f_match()
+                        #display_multiplayer_screen()
                     if stats_button.on_click(mouse_coordinates):
                         Menu.stats()
                     if binds_button.on_click(mouse_coordinates):
