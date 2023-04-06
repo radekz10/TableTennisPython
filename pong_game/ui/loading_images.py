@@ -53,7 +53,7 @@ class LoadingImages:
     TABLE = {
 
         1: {"TABLE": res(pygame.image.load("../images/ui/table/pong_table2.png"), 1.5).convert_alpha()},
-        2: {"TABLE": res(pygame.image.load("../images/ui/table/pong_table2.png"), 1.8).convert_alpha()},
+        2: {"TABLE": res(pygame.image.load("../images/ui/table/pong_table2.png"), 2.5).convert_alpha()},
 
     }
 
@@ -81,7 +81,7 @@ class LoadingImages:
         2: {"BUTTON": res(pygame.image.load("../images/ui/buttons/button_transparent.png"), 1.3).convert_alpha()},
 
         3: {"BUTTON": res(pygame.image.load("../images/ui/buttons/button.png"), 1).convert_alpha()},
-        #4: {"BUTTON": res(pygame.image.load("../images/ui/buttons/button_win_lose.png"), 1.5).convert_alpha()},
+        # 4: {"BUTTON": res(pygame.image.load("../images/ui/buttons/button_win_lose.png"), 1.5).convert_alpha()},
 
         5: {"BUTTON": res(pygame.image.load("../images/ui/buttons/settings_button.png"), 0.1).convert_alpha()},
         6: {"BUTTON": res(pygame.image.load("../images/ui/buttons/binds_button.png"), 0.15).convert_alpha()}

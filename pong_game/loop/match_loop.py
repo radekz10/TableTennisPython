@@ -40,7 +40,7 @@ class MatchLoop:
                 clock.tick(Settings.game_tick)
 
                 LoadingImages.GAME_SCREEN.blit(background, (0, 0))
-                LoadingImages.GAME_SCREEN.blit(table, (550, 300))
+                LoadingImages.GAME_SCREEN.blit(table, (335, 200))
 
                 LoopFunctions.start_countdown(f_player, s_player, ball)
 
@@ -67,43 +67,34 @@ class MatchLoop:
 
                 if f_player.get_rect().colliderect(ball.get_rect()):
                     # ball.speed = randint(7, 9)
-                    #ball.speed_x *= -1
-                    #ball.speed_y *= - 1
-                    #ball.x += ball.speed_x
-                    #ball.y += ball.speed_y
+                    # ball.speed_x *= -1
+                    # ball.speed_y *= - 1
+                    # ball.x += ball.speed_x
+                    # ball.y += ball.speed_y
                     # ball.x += ball.speed
                     # ball.y += ball.speed / 2
 
-
-
                     ball.speed_x = randint(7, 9)
-                    ball.speed_y = randint(-6, 6)
+                    ball.speed_y = randint(-2, 6)
 
                     Sounds.bat_ball_hit.play()
 
                 if s_player.get_rect().colliderect(ball.get_rect()):
                     # ball.speed = randint(7, 9)
-                    #ball.speed_x *= -1
-                    #ball.speed_y *= - 1
-                    #ball.x += 10
-                    #ball.y *= - 1
+                    # ball.speed_x *= -1
+                    # ball.speed_y *= - 1
+                    # ball.x += 10
+                    # ball.y *= - 1
                     # ball.x += ball.speed
                     # ball.y += ball.speed / 2
 
                     ball.speed_x = randint(7, 9)
-                    ball.speed_y = randint(-6, 6)
+                    ball.speed_y = randint(2, 6)
 
                     Sounds.bat_ball_hit.play()
 
-                if ball.y >= LoadingImages.GAME_SCREEN.get_height() or ball.y <= 0:
-                    ball.speed_y *= -1
-                    #ball.y += ball.speed_y
-                    Sounds.ball_hit.play()
-
-                if ball.x >= LoadingImages.GAME_SCREEN.get_width() or ball.x <= 0:
-                    ball.speed_x *= -1
-                    #ball.x += ball.speed_x
-                    Sounds.ball_hit.play()
+                ball.screen_edge()
+                ball.table_edge()
 
                 # if ball.x <= 500 or ball.x >= 1450:
                 # ball.x *= -1

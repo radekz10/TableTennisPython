@@ -44,8 +44,8 @@ class LoopFunctions:
 
     @staticmethod
     def start_countdown(f_player, s_player, ball):
-        x = 950
-        y = 600
+        x = LoadingImages.GAME_SCREEN.get_width() / 2
+        y = LoadingImages.GAME_SCREEN.get_height() / 2
 
         color = "white"
 
