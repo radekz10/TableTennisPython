@@ -31,15 +31,8 @@ class Ball:
         self.y += self.speed_y / 2
 
     def respawn(self):
-        self.x = 900
-        self.y = 540
-
-    def ball_pos(self):
-        if self.y >= 800:
-            self.y -= 50
-
-        if self.y <= 500:
-            self.y -= 50
+        self.x = LoadingImages.GAME_SCREEN.get_width() / 2
+        self.y = LoadingImages.GAME_SCREEN.get_height() / 2
 
     def get_rect(self):
         rect_angle = pygame.transform.rotate(self.image, self.angle)
@@ -47,16 +40,6 @@ class Ball:
             self.x + (self.image.get_width() / 2), self.y + (self.image.get_height() / 2)))
 
         return rect
-
-    def out_of_screen(self):
-        if self.y <= 0 or self.y >= 1920:
-            # self.y *= -1
-            self.y = 500
-        if self.x <= 0 or self.x >= 1080:
-            # self.x *= -1
-            self.x = 500
-
-        # if self.x
 
     def screen_edge(self):
         if self.y >= LoadingImages.GAME_SCREEN.get_height() or self.y <= 0:

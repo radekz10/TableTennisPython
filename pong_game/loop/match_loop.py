@@ -5,7 +5,6 @@ import pygame
 from pong_game.config.settings import Settings
 from pong_game.handler.keybinds import KeyBinds
 from pong_game.loop_functions.functions import LoopFunctions, Collisions
-from pong_game.sounds.sounds import Sounds
 from pong_game.ui.draw_ui import DrawUI
 from pong_game.ui.loading_images import LoadingImages
 
@@ -49,7 +48,6 @@ class MatchLoop:
 
                 ball.render_position(LoadingImages.GAME_SCREEN)
 
-                # LoopFunctions.check_show_ui(DrawUI.ui, player_car, car_stopwatch)
                 LoopFunctions.check_show_xy(f_player.xy_position)
                 LoopFunctions.check_show_xy(s_player.xy_position)
                 LoopFunctions.check_show_fps(DrawUI.game_show_fps, clock)
@@ -62,12 +60,7 @@ class MatchLoop:
                 ball.screen_edge()
                 ball.table_edge()
 
-                # Collisions.check_ball_pos(ball)
-                # Collisions.check_score(match_restart)
-
-                # ball.ball_pos()
-
-                # Collisions.col(ball)
+                Collisions.check_score(match_restart)
 
                 LoopFunctions.start_game()
                 pygame.display.update()
@@ -78,9 +71,7 @@ class MatchLoop:
 
                 KeyBinds.key_binds(f_player, s_player, match_restart)
 
-                # f_player.max_pos()
-                # s_player.max_pos()
-
-                # Collisions.check_collisions(f_player, s_player, ball)
+                f_player.max_pos()
+                s_player.max_pos()
 
             pygame.display.update()

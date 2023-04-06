@@ -14,17 +14,17 @@ class FirstPlayer(Player):
     angle = 360
 
     def max_pos(self):
-        if self.x >= 600:
-            self.x = 600
+        if self.x <= 200:
+            self.x = 200
 
-        if self.x <= 300:
-            self.x = 300
+        if self.x >= 500:
+            self.x = 500
 
-        if self.y <= 280:
-            self.y = 280
+        if self.y <= 200:
+            self.y = 200
 
-        if self.y >= 680:
-            self.y = 680
+        if self.y >= 880:
+            self.y = 880
 
     def xy_position(self):
         DrawUI.draw_text(f"Y - ( {round(self.y)} )", LoadingImages.SMALL_FONT, "white", 120, 1030,
@@ -34,7 +34,7 @@ class FirstPlayer(Player):
 
     @staticmethod
     def score():
-        DrawUI.draw_text(f"Score - {Settings.f_player_score}", LoadingImages.MEDIUM_FONT, "light blue", 50, 200,
+        DrawUI.draw_text(f"Score - {Settings.f_player_score}", LoadingImages.MEDIUM_FONT, "light blue", 50, 100,
                          LoadingImages.GAME_SCREEN)
 
 
