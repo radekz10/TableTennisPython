@@ -1,6 +1,8 @@
 import pygame
 
 import pong_game.ui.menu
+from pong_game.loop_functions.functions import LoopFunctions
+from pong_game.sounds.sounds import Sounds
 
 
 class KeyBinds:
@@ -27,9 +29,11 @@ class KeyBinds:
             f_player.rotate_right()
 
         if pressed_key[pygame.K_x]:
+            LoopFunctions.stop_audio()
             pong_game.ui.menu.Menu.main_menu()
 
         if pressed_key[pygame.K_r]:
+            LoopFunctions.stop_audio()
             match_restart()
 
     @staticmethod
@@ -49,6 +53,7 @@ class KeyBinds:
             s_player.right()
 
         if pressed_key[pygame.K_r]:
+            LoopFunctions.stop_audio()
             match_restart()
 
     @staticmethod

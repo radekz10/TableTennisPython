@@ -32,7 +32,7 @@ class LoopFunctions:
     @staticmethod
     def start_game():
         while not Settings.started:
-            DrawUI.draw_text(f"PRESS ANY KEY TO START", LoadingImages.MEDIUM_FONT, "orange", 800, 600,
+            DrawUI.draw_text(f"PRESS ANY KEY TO START", LoadingImages.MEDIUM_FONT, "orange", 830, 800,
                              LoadingImages.GAME_SCREEN)
             pygame.display.update()
 
@@ -45,7 +45,7 @@ class LoopFunctions:
     @staticmethod
     def start_countdown(f_player, s_player, ball):
         x = LoadingImages.GAME_SCREEN.get_width() / 2
-        y = LoadingImages.GAME_SCREEN.get_height() / 2
+        y = 90
 
         color = "white"
 
@@ -88,16 +88,7 @@ class LoopFunctions:
             f_player.speed = 10
             s_player.speed = 10
 
-            # ball.movement()
-            # ball.x += 1
-            # ball.x += ball.speed
-            # ball.y += ball.speed
-
-            #ball.movement()
-            # ball.y += ball.speed / 2
-
-            # ball.x += randint(5, 10)
-            # ball.y += randint(5, 10) / 2
+            ball.movement()
 
     @staticmethod
     def check_show_fps(command, clock):
@@ -114,12 +105,20 @@ class LoopFunctions:
         if Settings.audio == 1:
             command()
 
+    @staticmethod
+    def stop_audio():
+        LoopFunctions.check_audio(Sounds.countdown.stop)
+        LoopFunctions.check_audio(Sounds.ball_hit.stop)
+        LoopFunctions.check_audio(Sounds.bat_ball_hit.stop)
+        LoopFunctions.check_audio(Sounds.win.stop)
+
 
 class Collisions:
     @staticmethod
     def f_player_vs_ball(f_player, ball):
         if f_player.get_rect().colliderect(ball.get_rect()):
-
+            ball.speed_x = 0
+            ball.speed_y = 0
             ball.speed_x = randint(5, 15)
             ball.speed_y = randint(5, 15)
 
@@ -128,9 +127,10 @@ class Collisions:
     @staticmethod
     def s_player_vs_ball(s_player, ball):
         if s_player.get_rect().colliderect(ball.get_rect()):
-
-            ball.speed_x = randint(5, 15)
-            ball.speed_y = randint(5, 15)
+            ball.speed_x = 0
+            ball.speed_y = 0
+            ball.speed_x = -randint(5, 15)
+            ball.speed_y = -randint(5, 15)
             LoopFunctions.check_audio(Sounds.bat_ball_hit.play)
 
             ball.angle += randint(20, 100)
