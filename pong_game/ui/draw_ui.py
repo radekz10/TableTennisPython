@@ -9,5 +9,5 @@ class DrawUI:
 
     @staticmethod
     def game_show_fps(clock):
-        DrawUI.draw_text(f"FPS - {round(clock.get_fps())}", LoadingImages.MEDIUM_FONT, "cyan", 30, 20,
+        DrawUI.draw_text(f"FPS - {round(clock.get_fps())}", LoadingImages.MEDIUM_FONT, "white", 30, 20,
                          LoadingImages.GAME_SCREEN)

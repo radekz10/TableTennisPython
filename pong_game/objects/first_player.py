@@ -34,7 +34,7 @@ class FirstPlayer(Player):
 
     @staticmethod
     def score():
-        DrawUI.draw_text(f"{Settings.f_player_score}", LoadingImages.BIG_FONT, "black", 50, 100,
+        DrawUI.draw_text(f"{Settings.f_player_score}", LoadingImages.BIG_FONT, "cyan", 50, 100,
                          LoadingImages.GAME_SCREEN)
 
 

@@ -32,6 +32,7 @@ class LoadingImages:
     # ICONS ------------------------------------------------------------------------------------------------------------
     trophy_icon = res(pygame.image.load("../images/icons/trophy-icon.png"), 0.2).convert_alpha()
     star_icon = res(pygame.image.load("../images/icons/star_icon.png"), 0.2).convert_alpha()
+    exit_icon = res(pygame.image.load("../images/icons/exit.png"), 0.2).convert_alpha()
 
     # FONTS ------------------------------------------------------------------------------------------------------------
     NORMAL_FONT = pygame.font.SysFont("impact", 60)

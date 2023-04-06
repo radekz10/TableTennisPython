@@ -43,8 +43,8 @@ class Menu:
                                      font=LoadingImages.NORMAL_FONT,
                                      font_color="white", font_hover_color="cyan")
 
-            quit_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
-                                 button_text="QUIT",
+            quit_button = Button(button_image=LoadingImages.exit_icon, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
+                                 button_text="",
                                  font=LoadingImages.NORMAL_FONT,
                                  font_color="orange", font_hover_color="red")
 
