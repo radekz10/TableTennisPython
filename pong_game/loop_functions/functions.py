@@ -93,12 +93,11 @@ class LoopFunctions:
             # ball.x += ball.speed
             # ball.y += ball.speed
 
-            ball.x += ball.speed_x
-            ball.y += ball.speed_y / 2
-            #ball.y += ball.speed / 2
+            ball.movement()
+            # ball.y += ball.speed / 2
 
-            #ball.x += randint(5, 10)
-            #ball.y += randint(5, 10) / 2
+            # ball.x += randint(5, 10)
+            # ball.y += randint(5, 10) / 2
 
     @staticmethod
     def check_show_fps(command, clock):
@@ -118,25 +117,29 @@ class LoopFunctions:
 
 class Collisions:
     @staticmethod
-    def f_player_vs_ball(ball, f_player_rect, ball_rect):
-        if f_player_rect.colliderect(ball_rect):
-            Sounds.ball_hit.play()
-            ball.collision()
-            # Settings.f_player_score += 1
+    def f_player_vs_ball(f_player, ball):
+        if f_player.get_rect().colliderect(ball.get_rect()):
+
+            ball.speed_x = randint(7, 9)
+            ball.speed_y = randint(-2, 6)
+            Sounds.bat_ball_hit.play()
+
             ball.angle += 50
 
     @staticmethod
-    def s_player_vs_ball(ball, s_player_rect, ball_rect, s_player):
-        if s_player_rect.colliderect(ball_rect):
-            Sounds.ball_hit.play()
-            ball.collisionn()
-            # Settings.s_player_score += 1
-            ball.angle -= 50
+    def s_player_vs_ball(s_player, ball):
+        if s_player.get_rect().colliderect(ball.get_rect()):
+
+            ball.speed_x = randint(7, 9)
+            ball.speed_y = randint(-2, 6)
+            Sounds.bat_ball_hit.play()
+
+            ball.angle += 50
 
     @staticmethod
     def check_collisions(f_player, s_player, ball):
-        Collisions.f_player_vs_ball(ball, f_player.get_rect(), ball.get_rect())
-        Collisions.s_player_vs_ball(ball, s_player.get_rect(), ball.get_rect(), s_player)
+        Collisions.f_player_vs_ball(f_player, ball)
+        Collisions.s_player_vs_ball(s_player, ball)
 
     @staticmethod
     def check_ball_pos(ball):
@@ -172,30 +175,3 @@ class Collisions:
 
             LoopFunctions.check_new_game()
             restart_map()
-
-    @staticmethod
-    def col(ball):
-
-        # if ball.y >= 800:
-        # Sounds.ball_hit.play()
-
-        #  ball.x = -ball.x
-        #  ball.y = -ball.y
-
-        # if ball.y <= 300:
-        #   Sounds.ball_hit.play()
-
-        #    ball.x = -ball.x
-        #   ball.y = -ball.y
-
-        if ball.x >= 1920:
-            Sounds.ball_hit.play()
-
-            ball.x = -ball.x
-        # ball.y = -ball.y
-
-        if ball.x <= 0:
-            Sounds.ball_hit.play()
-
-            ball.x = -ball.x
-        # ball.y = -ball.y

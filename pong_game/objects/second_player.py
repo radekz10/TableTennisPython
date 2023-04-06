@@ -5,8 +5,8 @@ from pong_game.ui.loading_images import LoadingImages
 
 
 class SecondPlayer(Player):
-    x_position = 1400
-    y_position = 540
+    x_position = 1585
+    y_position = 510
 
     image = LoadingImages.PONG_BATS[4]["BAT"]
     angle = 360
@@ -25,9 +25,9 @@ class SecondPlayer(Player):
             self.y = 680
 
     def xy_position(self):
-        DrawUI.draw_text(f"Y - ( {round(self.y)} )", LoadingImages.SMALL_FONT, "white", 1720, 1030,
+        DrawUI.draw_text(f"X - ( {round(self.x)} )", LoadingImages.SMALL_FONT, "white", 1720, 1030,
                          LoadingImages.GAME_SCREEN)
-        DrawUI.draw_text(f"X - ( {round(self.x)} )", LoadingImages.SMALL_FONT, "cyan", 1810, 1030,
+        DrawUI.draw_text(f"Y - ( {round(self.y)} )", LoadingImages.SMALL_FONT, "cyan", 1810, 1030,
                          LoadingImages.GAME_SCREEN)
 
     @staticmethod

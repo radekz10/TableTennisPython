@@ -27,19 +27,8 @@ class Ball:
         self.image_position(game_window, self.image, (self.x, self.y), self.angle)
 
     def movement(self):
-        self.x += self.speed
-        self.y += self.speed / 2
-
-    def collision(self):
-        self.speed += 10
-        self.x += 50
-
-    def collisionn(self):
-        # self.speed -= 10
-        # self.x -= 50
-
-        self.x = -self.x
-        self.y = -self.y
+        self.x += self.speed_x
+        self.y += self.speed_y / 2
 
     def respawn(self):
         self.x = 900
@@ -82,10 +71,10 @@ class Ball:
 
     def table_edge(self):
         if self.y <= 200 or self.y >= 880:
-            #if self.x >= 300 or self.x <= 1500:
-            self.speed_y *= -1
-            # ball.y += ball.speed_y
-            Sounds.ball_hit.play()
+            if self.x >= 570 or self.x <= 1280:
+                self.speed_y *= -1
+                # ball.y += ball.speed_y
+                Sounds.ball_hit.play()
 
         #if self.x >= LoadingImages.GAME_SCREEN.get_width() or self.x <= 0:
             #self.speed_x *= -1
