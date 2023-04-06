@@ -120,21 +120,21 @@ class Collisions:
     def f_player_vs_ball(f_player, ball):
         if f_player.get_rect().colliderect(ball.get_rect()):
 
-            ball.speed_x = randint(7, 9)
-            ball.speed_y = randint(-2, 6)
+            ball.speed_x = randint(5, 15)
+            ball.speed_y = randint(5, 15)
             Sounds.bat_ball_hit.play()
 
-            ball.angle += 50
+            ball.angle += randint(20, 100)
 
     @staticmethod
     def s_player_vs_ball(s_player, ball):
         if s_player.get_rect().colliderect(ball.get_rect()):
 
-            ball.speed_x = randint(7, 9)
-            ball.speed_y = randint(-2, 6)
+            ball.speed_x = randint(5, 15)
+            ball.speed_y = randint(5, 15)
             Sounds.bat_ball_hit.play()
 
-            ball.angle += 50
+            ball.angle += randint(20, 100)
 
     @staticmethod
     def check_collisions(f_player, s_player, ball):
@@ -142,14 +142,20 @@ class Collisions:
         Collisions.s_player_vs_ball(s_player, ball)
 
     @staticmethod
-    def check_ball_pos(ball):
-        if ball.x <= 450:
+    def score_plus_plus(ball):
+        if ball.x <= 270:
             Settings.s_player_score += 1
             ball.respawn()
 
-        if ball.x >= 1400:
+            pygame.display.update()
+            pygame.time.wait(300)
+
+        if ball.x >= 1585:
             Settings.f_player_score += 1
             ball.respawn()
+
+            pygame.display.update()
+            pygame.time.wait(300)
 
     @staticmethod
     def check_score(restart_map):

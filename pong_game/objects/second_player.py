@@ -32,5 +32,5 @@ class SecondPlayer(Player):
 
     @staticmethod
     def score():
-        DrawUI.draw_text(f"Score - {Settings.s_player_score}", LoadingImages.MEDIUM_FONT, "light blue", 1750, 100,
+        DrawUI.draw_text(f"{Settings.s_player_score}", LoadingImages.BIG_FONT, "red", 1820, 100,
                          LoadingImages.GAME_SCREEN)

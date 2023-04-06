@@ -55,6 +55,8 @@ class MatchLoop:
                 f_player.score()
                 s_player.score()
 
+                #Collisions.score_plus_plus(ball)
+
                 Collisions.check_collisions(f_player, s_player, ball)
 
                 ball.screen_edge()
