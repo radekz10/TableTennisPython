@@ -9,8 +9,8 @@ class Ball:
 
     def __init__(self):
         self.image = LoadingImages.PONG_BALL[2]["BALL"]
-        self.x = 1500 #LoadingImages.GAME_SCREEN.get_width() / 2
-        self.y = 510 #LoadingImages.GAME_SCREEN.get_height() / 2
+        self.x = LoadingImages.GAME_SCREEN.get_width() / 2
+        self.y = LoadingImages.GAME_SCREEN.get_height() / 2
         # self.speed = 10
         self.speed_x = 10
         self.speed_y = 10

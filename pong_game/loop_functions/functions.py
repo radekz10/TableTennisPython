@@ -142,14 +142,14 @@ class Collisions:
 
     @staticmethod
     def score_plus_plus(ball):
-        if ball.x <= 270:
+        if ball.x <= 220:
             Settings.s_player_score += 1
             ball.respawn()
 
             pygame.display.update()
             pygame.time.wait(300)
 
-        if ball.x >= 1585:
+        if ball.x >= 1635:
             Settings.f_player_score += 1
             ball.respawn()
 
