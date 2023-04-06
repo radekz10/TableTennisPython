@@ -68,7 +68,7 @@ class LoopFunctions:
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown == 4:
-            Sounds.countdown.play()
+            LoopFunctions.check_audio(Sounds.countdown.play)
             DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "lime", x, y,
                              LoadingImages.GAME_SCREEN)
 
@@ -93,7 +93,7 @@ class LoopFunctions:
             # ball.x += ball.speed
             # ball.y += ball.speed
 
-            ball.movement()
+            #ball.movement()
             # ball.y += ball.speed / 2
 
             # ball.x += randint(5, 10)
@@ -122,7 +122,6 @@ class Collisions:
 
             ball.speed_x = randint(5, 15)
             ball.speed_y = randint(5, 15)
-            Sounds.bat_ball_hit.play()
 
             ball.angle += randint(20, 100)
 
@@ -132,7 +131,7 @@ class Collisions:
 
             ball.speed_x = randint(5, 15)
             ball.speed_y = randint(5, 15)
-            Sounds.bat_ball_hit.play()
+            LoopFunctions.check_audio(Sounds.bat_ball_hit.play)
 
             ball.angle += randint(20, 100)
 
@@ -162,7 +161,7 @@ class Collisions:
         if Settings.f_player_score == 5:
             Settings.win_coins += 1
             Settings.score_coins += 5
-            Sounds.win.play()
+            LoopFunctions.check_audio(Sounds.win.play)
             DataProcessing.save_data(str(Settings.win_coins), Settings.FILE_PATHS[1]["FILE"])
             DataProcessing.save_data(str(Settings.score_coins), Settings.FILE_PATHS[2]["FILE"])
 
@@ -174,7 +173,7 @@ class Collisions:
             restart_map()
 
         if Settings.s_player_score == 5:
-            Sounds.win.play()
+            LoopFunctions.check_audio(Sounds.win.play)
             DrawUI.draw_text("II. PLAYER WON!", LoadingImages.BIG_FONT, "gold", 700, 600, LoadingImages.GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(1000)

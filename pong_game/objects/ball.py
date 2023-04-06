@@ -1,5 +1,6 @@
 import pygame
 
+from pong_game.loop_functions.functions import LoopFunctions
 from pong_game.sounds.sounds import Sounds
 from pong_game.ui.loading_images import LoadingImages
 
@@ -8,8 +9,8 @@ class Ball:
 
     def __init__(self):
         self.image = LoadingImages.PONG_BALL[2]["BALL"]
-        self.x = LoadingImages.GAME_SCREEN.get_width() / 2
-        self.y = LoadingImages.GAME_SCREEN.get_height() / 2
+        self.x = 1500 #LoadingImages.GAME_SCREEN.get_width() / 2
+        self.y = 510 #LoadingImages.GAME_SCREEN.get_height() / 2
         # self.speed = 10
         self.speed_x = 10
         self.speed_y = 10
@@ -45,19 +46,19 @@ class Ball:
         if self.y >= LoadingImages.GAME_SCREEN.get_height() or self.y <= 0:
             self.speed_y *= -1
             # ball.y += ball.speed_y
-            Sounds.ball_hit.play()
+            LoopFunctions.check_audio(Sounds.ball_hit.play)
 
         if self.x >= LoadingImages.GAME_SCREEN.get_width() or self.x <= 0:
             self.speed_x *= -1
             # ball.x += ball.speed_x
-            Sounds.ball_hit.play()
+            LoopFunctions.check_audio(Sounds.ball_hit.play)
 
     def table_edge(self):
         if self.y <= 200 or self.y >= 880:
             if self.x >= 570 or self.x <= 1280:
                 self.speed_y *= -1
                 # ball.y += ball.speed_y
-                Sounds.ball_hit.play()
+                LoopFunctions.check_audio(Sounds.ball_hit.play)
 
         #if self.x >= LoadingImages.GAME_SCREEN.get_width() or self.x <= 0:
             #self.speed_x *= -1

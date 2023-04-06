@@ -1,17 +1,15 @@
 import pygame
 
-#pygame.mixer.pre_init(44100, 16, 2, 4096)
+# pygame.mixer.pre_init(44100, 16, 2, 4096)
 pygame.init()
 
 
 class Sounds:
-
     ball_hit = pygame.mixer.Sound("../sound_effects/ball_hit.mp3")
     ball_hit.set_volume(0.05)
 
     bat_ball_hit = pygame.mixer.Sound("../sound_effects/bat_ball_hit.ogg")
     bat_ball_hit.set_volume(0.05)
-
 
     # GAME EVENT SOUNDS -----------------------------------------------------------------------------------------------
 
