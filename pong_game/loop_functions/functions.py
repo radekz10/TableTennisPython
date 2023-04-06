@@ -64,24 +64,24 @@ class LoopFunctions:
                 Settings.last_count = count_timer
 
         if Settings.countdown == 5:
-            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, color, x, y,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "white", x, y,
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown == 4:
             Sounds.countdown.play()
-            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, color, x, y,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "lime", x, y,
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown == 3:
-            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, color, x, y,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "lime", x, y,
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown == 2:
-            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, color, x, y,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "cyan", x, y,
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown == 1:
-            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, color, x, y,
+            DrawUI.draw_text(f"{str(Settings.countdown)}", LoadingImages.BIG_FONT, "cyan", x, y,
                              LoadingImages.GAME_SCREEN)
 
         if Settings.countdown <= 0:

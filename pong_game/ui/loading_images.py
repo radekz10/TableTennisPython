@@ -62,15 +62,16 @@ class LoadingImages:
 
         1: {"BAT": res(pygame.image.load("../images/ui/bat/bat2.png"), 0.1).convert_alpha()},
         2: {"BAT": res(pygame.image.load("../images/ui/bat/bat3.png"), 0.1).convert_alpha()},
-        3: {"BAT": res(pygame.image.load("../images/ui/bat/bat_black.png"), 1).convert_alpha()},
-        4: {"BAT": res(pygame.image.load("../images/ui/bat/bat_red.png"), 1).convert_alpha()}
+        3: {"BAT": res(pygame.image.load("../images/ui/bat/bat_blue.png"), 1).convert_alpha()},
+        4: {"BAT": res(pygame.image.load("../images/ui/bat/bat_green.png"), 1).convert_alpha()}
 
     }
 
     PONG_BALL = {
 
         1: {"BALL": res(pygame.image.load("../images/ui/ball/pong_ball.png"), 0.025).convert_alpha()},
-        2: {"BALL": res(pygame.image.load("../images/ui/ball/ball.png"), 1).convert_alpha()}
+        2: {"BALL": res(pygame.image.load("../images/ui/ball/ball.png"), 1).convert_alpha()},
+        3: {"BALL": res(pygame.image.load("../images/ui/ball/ball_green.png"), 1).convert_alpha()}
 
     }
 
