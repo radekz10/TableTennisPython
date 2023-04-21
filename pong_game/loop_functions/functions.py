@@ -32,7 +32,7 @@ class LoopFunctions:
     @staticmethod
     def start_game():
         while not Settings.started:
-            DrawUI.draw_text(f"PRESS ANY KEY TO START", LoadingImages.MEDIUM_FONT, "orange", 830, 800,
+            DrawUI.draw_text(f"PRESS ANY KEY TO START", LoadingImages.MEDIUM_FONT, "orange", 790, 800,
                              LoadingImages.GAME_SCREEN)
             pygame.display.update()
 
@@ -44,7 +44,7 @@ class LoopFunctions:
 
     @staticmethod
     def start_countdown(f_player, s_player, ball):
-        x = LoadingImages.GAME_SCREEN.get_width() / 2
+        x = LoadingImages.GAME_SCREEN.get_width() / 2 - 25
         y = 90
 
         color = "white"

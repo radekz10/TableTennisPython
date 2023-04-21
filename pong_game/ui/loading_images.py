@@ -53,8 +53,8 @@ class LoadingImages:
 
     TABLE = {
 
-        1: {"TABLE": res(pygame.image.load("../images/ui/table/pong_table2.png"), 1.5).convert_alpha()},
-        2: {"TABLE": res(pygame.image.load("../images/ui/table/pong_table2.png"), 2.5).convert_alpha()},
+        1: {"TABLE": res(pygame.image.load("../images/ui/table/pong_table.png"), 1.5).convert_alpha()},
+        2: {"TABLE": res(pygame.image.load("../images/ui/table/pong_table.png"), 2.5).convert_alpha()},
 
     }
 
