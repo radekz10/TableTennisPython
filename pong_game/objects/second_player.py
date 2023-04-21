@@ -11,6 +11,10 @@ class SecondPlayer(Player):
     image = LoadingImages.PONG_BATS[4]["BAT"]
     angle = 360
 
+    def restart(self):
+        self.x = 1585
+        self.y = 510
+
     def max_pos(self):
         if self.x >= 1720:
             self.x = 1720
